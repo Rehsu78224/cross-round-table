@@ -1,44 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cross Round Table</title>
 
 <style>
+
 body{
-font-family:Arial;
-background:#FFF7ED;
+margin:0;
 padding:20px;
+background:#FFF7ED;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
 }
 
 .card{
-max-width:500px;
-margin:auto;
+
+width:100%;
+max-width:550px;
+
 background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+border:3px dashed #FFD9A0;
+
+}
+
+.header{
+
+text-align:center;
+margin-bottom:25px;
+
+}
+
+.title{
+
+font-size:42px;
+font-weight:bold;
+color:#23396B;
+
+}
+
+.subtitle{
+
+font-size:20px;
+color:#666;
+margin-top:10px;
+
+}
+
+.cat{
+
+font-size:50px;
+margin-top:10px;
+
+}
+
+.section{
+
+margin-bottom:25px;
+
+}
+
+.sectionTitle{
+
+font-size:28px;
+font-weight:bold;
+margin-bottom:10px;
+
 }
 
 textarea,input{
+
 width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:10px;
-border:1px solid #ddd;
+box-sizing:border-box;
+
+padding:15px;
+
+border-radius:20px;
+
+border:2px dashed #ddd;
+
+font-size:16px;
+
+resize:none;
+
+background:#FAFAFA;
+
+}
+
+.red{
+
+color:#FF6B6B;
+
+}
+
+.green{
+
+color:#5BAE4B;
+
+}
+
+.orange{
+
+color:#FF9F43;
+
+}
+
+.blue{
+
+color:#5A8DEE;
+
 }
 
 button{
+
 width:100%;
-padding:15px;
-margin-top:20px;
+
+padding:18px;
+
 border:none;
-border-radius:15px;
-background:#1e3a8a;
+
+border-radius:20px;
+
+background:#23396B;
+
 color:white;
-font-size:18px;
+
+font-size:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
 }
+
+button:hover{
+
+transform:scale(1.03);
+
+}
+
+.footer{
+
+margin-top:30px;
+
+background:#FFF3D9;
+
+padding:15px;
+
+border-radius:20px;
+
+text-align:center;
+
+font-size:18px;
+
+color:#555;
+
+}
+
 </style>
 
 </head>
@@ -47,22 +178,82 @@ font-size:18px;
 
 <div class="card">
 
-<h1>CROSS ROUND TABLE</h1>
-<p>匿名分享今天的收穫</p>
+<div class="header">
 
-<h3>❤️ 感想</h3>
-<textarea rows="3"></textarea>
+<div class="title">
+CROSS ROUND TABLE
+</div>
 
-<h3>🔍 發現</h3>
-<textarea rows="3"></textarea>
+<div class="subtitle">
+匿名分享今天的收穫
+</div>
 
-<h3>🎁 意外收穫</h3>
-<textarea rows="3"></textarea>
+<div class="cat">
+🐱 ☕ 🐾
+</div>
 
-<h3>👥 認識到的人</h3>
-<input placeholder="IT｜咖啡">
+</div>
 
-<button>🎉送出</button>
+
+<div class="section">
+
+<div class="sectionTitle red">
+❤️ 感想
+</div>
+
+<textarea rows="4"
+placeholder="今天讓你印象最深刻的是..."></textarea>
+
+</div>
+
+
+<div class="section">
+
+<div class="sectionTitle green">
+🔍 發現
+</div>
+
+<textarea rows="4"
+placeholder="有沒有新的觀點或事情？"></textarea>
+
+</div>
+
+
+<div class="section">
+
+<div class="sectionTitle orange">
+🎁 意外收穫
+</div>
+
+<textarea rows="4"
+placeholder="最意外的收穫是..."></textarea>
+
+</div>
+
+
+<div class="section">
+
+<div class="sectionTitle blue">
+👥 認識到的人
+</div>
+
+<input
+placeholder="部門｜關鍵字，例如：IT｜咖啡、品保｜羽球">
+
+</div>
+
+
+<button>
+🎉 匿名送出
+</button>
+
+
+<div class="footer">
+
+🐱 今天認識的人，可能是下次合作最先想到的人 ☕
+
+</div>
+
 
 </div>
 
