@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,63 +20,72 @@ justify-content:center;
 
 .card{
 
-position:relative;
-
 width:100%;
 max-width:900px;
 
 background:white;
 
-padding:40px;
+padding:35px;
 
 border-radius:35px;
 
-box-shadow:0 8px 30px rgba(0,0,0,.08);
+position:relative;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
 
 overflow:hidden;
-
-}
-
-.title{
-
-font-size:60px;
-font-weight:bold;
-color:#243B73;
-text-align:center;
-margin-top:30px;
-margin-bottom:60px;
 
 }
 
 .topCat{
 
 position:absolute;
-left:10px;
-top:15px;
+
+left:20px;
+top:20px;
 
 }
 
 .topCat img{
 
-width:170px;
+width:110px;
+
+}
+
+.title{
+
+font-size:55px;
+font-weight:bold;
+color:#243B73;
+
+text-align:center;
+
+padding-left:110px;
+padding-right:180px;
+
+margin-top:20px;
+margin-bottom:50px;
 
 }
 
 .rightBubble{
 
 position:absolute;
-right:20px;
-top:100px;
+
+right:25px;
+top:35px;
 
 background:#FFF0D5;
-padding:18px;
+
+padding:15px;
+
 border-radius:25px;
 
-width:200px;
+width:180px;
 
-font-size:16px;
+font-size:15px;
 
-line-height:1.8;
+line-height:1.7;
 
 }
 
@@ -97,9 +106,15 @@ margin-bottom:10px;
 }
 
 .red{color:#FF6B6B;}
-.green{color:#68B85F;}
-.orange{color:#FFAA33;}
+.green{color:#69B95B;}
+.orange{color:#FFA52B;}
 .blue{color:#5A8DEE;}
+
+.inputArea{
+
+position:relative;
+
+}
 
 textarea,input{
 
@@ -112,25 +127,26 @@ border-radius:20px;
 
 border:2px solid #EFEFEF;
 
-font-size:16px;
-
 background:#FAFAFA;
+
+font-size:16px;
 
 resize:none;
 
 }
 
-.catRight{
+.smallCat{
 
 position:absolute;
-right:20px;
+
+right:15px;
 bottom:10px;
 
 }
 
-.catRight img{
+.smallCat img{
 
-width:120px;
+width:80px;
 
 }
 
@@ -154,6 +170,8 @@ font-weight:bold;
 
 cursor:pointer;
 
+margin-top:15px;
+
 }
 
 .bottom{
@@ -162,45 +180,50 @@ display:flex;
 
 justify-content:space-between;
 
-margin-top:30px;
+margin-top:20px;
 
-align-items:center;
+padding:0 20px;
 
 }
 
 .bottom img{
 
-width:120px;
+width:90px;
 
 }
 
 @media(max-width:768px){
 
 .title{
-font-size:35px;
+
+font-size:34px;
+
+padding-left:0;
+padding-right:0;
+
+margin-top:100px;
+
 }
 
 .topCat img{
-width:100px;
+
+width:90px;
+
 }
 
 .rightBubble{
 
 position:static;
+
 width:auto;
-margin-bottom:20px;
+
+margin-bottom:25px;
 
 }
 
-.catRight img{
+.smallCat img{
 
-width:70px;
-
-}
-
-.bottom img{
-
-width:80px;
+width:60px;
 
 }
 
@@ -214,16 +237,10 @@ width:80px;
 
 <div class="card">
 
+
 <div class="topCat">
 
 <img src="./images/cat-coffee.png">
-
-</div>
-
-
-<div class="title">
-
-CROSS ROUND TABLE ☕
 
 </div>
 
@@ -232,6 +249,13 @@ CROSS ROUND TABLE ☕
 
 🐱 每一次交流<br>
 都可能成為未來合作的起點！
+
+</div>
+
+
+<div class="title">
+
+CROSS ROUND TABLE ☕
 
 </div>
 
@@ -245,12 +269,16 @@ CROSS ROUND TABLE ☕
 
 </div>
 
+<div class="inputArea">
+
 <textarea rows="4"
 placeholder="今天讓你印象最深刻的是..."></textarea>
 
-<div class="catRight">
+<div class="smallCat">
 
 <img src="./images/cat-sleep.png">
+
+</div>
 
 </div>
 
@@ -266,12 +294,16 @@ placeholder="今天讓你印象最深刻的是..."></textarea>
 
 </div>
 
+<div class="inputArea">
+
 <textarea rows="4"
 placeholder="今天發現了什麼新的觀點..."></textarea>
 
-<div class="catRight">
+<div class="smallCat">
 
 <img src="./images/cat-search.png">
+
+</div>
 
 </div>
 
@@ -287,12 +319,16 @@ placeholder="今天發現了什麼新的觀點..."></textarea>
 
 </div>
 
+<div class="inputArea">
+
 <textarea rows="4"
 placeholder="今天最大的收穫是..."></textarea>
 
-<div class="catRight">
+<div class="smallCat">
 
 <img src="./images/cat-happy.png">
+
+</div>
 
 </div>
 
@@ -314,6 +350,7 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 </div>
 
 
+
 <button>
 
 🎉 匿名送出
@@ -329,7 +366,9 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </div>
 
+
 </div>
 
 </body>
+
 </html>
