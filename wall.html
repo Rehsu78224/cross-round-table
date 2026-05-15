@@ -56,6 +56,7 @@ padding:25px;
 position:relative;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 break-inside:avoid;
+overflow:hidden;
 }
 
 .number{
@@ -104,8 +105,16 @@ white-space:pre-wrap;
 position:absolute;
 right:15px;
 bottom:15px;
-width:80px;
+width:85px;
 opacity:.95;
+}
+
+.footer{
+text-align:center;
+margin-top:50px;
+font-size:24px;
+font-weight:bold;
+color:#143A84;
 }
 
 @media(max-width:900px){
@@ -123,7 +132,7 @@ font-size:42px;
 @media print{
 
 body{
-padding:0;
+padding:10px;
 }
 
 .card{
@@ -150,7 +159,16 @@ break-inside:avoid;
 
 </div>
 
-<div class="wall" id="wall">
+
+<div class="wall"
+id="wall">
+
+</div>
+
+
+<div class="footer">
+
+✨ Cross Round Table Vol.01 ✨
 
 </div>
 
@@ -161,7 +179,7 @@ const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
-'你的 anon key'
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 
 const supabaseClient =
 supabase.createClient(
@@ -171,15 +189,24 @@ supabaseKey
 
 async function loadData(){
 
-const { data , error } =
+const {
+data,
+error
+} =
 await supabaseClient
 .from('responses')
 .select('*')
-.order('id',{ascending:false})
+.order(
+'id',
+{
+ascending:false
+}
+)
 
 if(error){
 
 console.log(error)
+
 return
 
 }
@@ -189,7 +216,8 @@ document.getElementById('wall')
 
 wall.innerHTML=''
 
-data.forEach((item,index)=>{
+data.forEach(
+(item,index)=>{
 
 wall.innerHTML += `
 
@@ -201,6 +229,7 @@ wall.innerHTML += `
 
 </div>
 
+
 <div class="section">
 
 <div class="label red">
@@ -211,11 +240,12 @@ wall.innerHTML += `
 
 <div class="text">
 
-${item.feeling}
+${item.feeling || ''}
 
 </div>
 
 </div>
+
 
 
 <div class="section">
@@ -228,11 +258,12 @@ ${item.feeling}
 
 <div class="text">
 
-${item.discovery}
+${item.discovery || ''}
 
 </div>
 
 </div>
+
 
 
 <div class="section">
@@ -245,11 +276,12 @@ ${item.discovery}
 
 <div class="text">
 
-${item.surprise}
+${item.surprise || ''}
 
 </div>
 
 </div>
+
 
 
 <div class="section">
@@ -262,20 +294,21 @@ ${item.surprise}
 
 <div class="text">
 
-${item.people}
+${item.people || ''}
 
 </div>
 
 </div>
 
 <img class="cat"
-src="./images/cat-coffee.png">
+src="./images/cat-happy.png">
 
 </div>
 
 `
 
-})
+}
+)
 
 }
 
