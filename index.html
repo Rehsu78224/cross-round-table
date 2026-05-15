@@ -9,65 +9,67 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Cross Round Table
+Cross Round Table Wall
 </title>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
 body{
 margin:0;
-padding:0;
+padding:20px;
 background:#FFF8F1;
-font-family:Arial,sans-serif;
+font-family:
+"Microsoft JhengHei",
+sans-serif;
 }
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:25px;
-}
-
-.header{
-text-align:center;
-margin-bottom:35px;
 }
 
 .title{
+text-align:center;
 font-size:72px;
-font-weight:bold;
+font-weight:900;
 color:#143A84;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .banner{
+text-align:center;
 background:#FFF2D8;
 padding:16px;
-border-radius:30px;
-display:inline-block;
-font-size:22px;
+border-radius:40px;
+font-size:24px;
 font-weight:bold;
+max-width:760px;
+margin:auto;
+margin-bottom:40px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:22px;
 }
 
 .card{
 background:white;
 border-radius:35px;
-padding:25px;
+padding:24px;
 position:relative;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-min-height:360px;
+box-shadow:
+0 8px 24px rgba(0,0,0,.08);
+min-height:340px;
+overflow:hidden;
 }
 
-.card h2{
-margin-top:0;
-font-size:42px;
+.label{
+font-size:46px;
+font-weight:bold;
 margin-bottom:10px;
 }
 
@@ -76,7 +78,7 @@ color:#FF5F6D;
 }
 
 .green{
-color:#5CB85C;
+color:#70B84D;
 }
 
 .orange{
@@ -89,36 +91,31 @@ color:#5A8DEE;
 
 .desc{
 font-size:18px;
-line-height:1.7;
 margin-bottom:18px;
+line-height:1.6;
 }
 
-textarea,
-input{
-width:100%;
-padding:18px;
-font-size:20px;
-border-radius:25px;
+.text{
 border:3px dashed #E5E5E5;
-background:#FFFDFB;
+border-radius:24px;
+padding:24px;
+font-size:30px;
+line-height:1.8;
+height:160px;
+overflow:auto;
+white-space:pre-wrap;
 box-sizing:border-box;
-outline:none;
-}
-
-textarea{
-height:180px;
-resize:none;
+background:white;
 }
 
 .cat{
 position:absolute;
 right:18px;
 bottom:18px;
-width:95px;
-opacity:.95;
+width:88px;
 }
 
-.submit-wrap{
+.bottom{
 text-align:center;
 margin-top:40px;
 }
@@ -127,32 +124,71 @@ button{
 background:#143A84;
 color:white;
 border:none;
-padding:22px 70px;
-font-size:28px;
+padding:16px 34px;
+font-size:22px;
 font-weight:bold;
-border-radius:30px;
+border-radius:18px;
+margin:10px;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
-opacity:.9;
+transform:scale(1.05);
 }
 
-.note{
+.page{
+font-size:28px;
+font-weight:bold;
+margin-top:10px;
+color:#143A84;
+}
+
+.loading{
 text-align:center;
-margin-top:20px;
-font-size:16px;
-color:#777;
+font-size:32px;
+font-weight:bold;
+padding:100px;
+color:#143A84;
 }
 
 @media(max-width:900px){
 
-.title{
-font-size:48px;
-}
-
 .grid{
 grid-template-columns:1fr;
+}
+
+.title{
+font-size:46px;
+}
+
+.label{
+font-size:38px;
+}
+
+.text{
+font-size:24px;
+height:150px;
+}
+
+}
+
+@media print{
+
+button,
+.page{
+display:none;
+}
+
+body{
+padding:0;
+background:white;
+}
+
+.card{
+box-shadow:none;
+border:1px solid #DDD;
+break-inside:avoid;
 }
 
 }
@@ -164,8 +200,6 @@ grid-template-columns:1fr;
 <body>
 
 <div class="container">
-
-<div class="header">
 
 <div class="title">
 
@@ -179,21 +213,16 @@ grid-template-columns:1fr;
 
 </div>
 
-</div>
-
-
-<form id="roundForm">
-
-<div class="grid">
-
+<div
+class="grid">
 
 <div class="card">
 
-<h2 class="red">
+<div class="label red">
 
 ❤️ 感想
 
-</h2>
+</div>
 
 <div class="desc">
 
@@ -201,25 +230,28 @@ grid-template-columns:1fr;
 
 </div>
 
-<textarea
-name="feeling"
-placeholder="請輸入..."
-required></textarea>
+<div
+class="text"
+id="feeling">
 
-<img class="cat"
+載入中...
+
+</div>
+
+<img
+class="cat"
 src="./images/cat-sleep.png">
 
 </div>
 
 
-
 <div class="card">
 
-<h2 class="green">
+<div class="label green">
 
 🔍 發現
 
-</h2>
+</div>
 
 <div class="desc">
 
@@ -227,25 +259,28 @@ src="./images/cat-sleep.png">
 
 </div>
 
-<textarea
-name="discovery"
-placeholder="請輸入..."
-required></textarea>
+<div
+class="text"
+id="discovery">
 
-<img class="cat"
+載入中...
+
+</div>
+
+<img
+class="cat"
 src="./images/cat-search.png">
 
 </div>
 
 
-
 <div class="card">
 
-<h2 class="orange">
+<div class="label orange">
 
 🎁 意外收穫
 
-</h2>
+</div>
 
 <div class="desc">
 
@@ -253,38 +288,45 @@ src="./images/cat-search.png">
 
 </div>
 
-<textarea
-name="surprise"
-placeholder="請輸入..."
-required></textarea>
+<div
+class="text"
+id="surprise">
 
-<img class="cat"
+載入中...
+
+</div>
+
+<img
+class="cat"
 src="./images/cat-coffee.png">
 
 </div>
 
 
-
 <div class="card">
 
-<h2 class="blue">
+<div class="label blue">
 
 👥 認識到的人
 
-</h2>
+</div>
 
 <div class="desc">
 
-今天認識了哪些新朋友呢？可以寫下名字或部門喔！
+今天認識了哪些新朋友？可以寫下名字或部門喔！
 
 </div>
 
-<input
-name="people"
-placeholder="部門｜關鍵字，例如：IT｜咖啡"
-required>
+<div
+class="text"
+id="people">
 
-<img class="cat"
+載入中...
+
+</div>
+
+<img
+class="cat"
 src="./images/cat-happy.png">
 
 </div>
@@ -292,23 +334,29 @@ src="./images/cat-happy.png">
 </div>
 
 
-<div class="submit-wrap">
+<div class="bottom">
 
-<button type="submit">
+<button onclick="prevPage()">
 
-🎉 匿名送出
+⬅ 上一頁
 
 </button>
 
+<button onclick="nextPage()">
+
+下一頁 ➡
+
+</button>
+
+<div
+class="page"
+id="page">
+
+1 / 1
+
 </div>
 
-<div class="note">
-
-※ 不會記錄姓名與帳號，請安心分享
-
 </div>
-
-</form>
 
 </div>
 
@@ -321,74 +369,116 @@ const supabaseUrl =
 const supabaseKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 
-const supabaseClient =
-supabase.createClient(
+const client =
+window.supabase.createClient(
 supabaseUrl,
 supabaseKey
 )
 
+let allData = []
 
-document
-.getElementById('roundForm')
-.addEventListener(
-'submit',
-async function(e){
+let current = 0
 
-e.preventDefault()
+async function loadData(){
 
-const feeling =
-document.querySelector(
-'[name="feeling"]'
-).value
-
-const discovery =
-document.querySelector(
-'[name="discovery"]'
-).value
-
-const surprise =
-document.querySelector(
-'[name="surprise"]'
-).value
-
-const people =
-document.querySelector(
-'[name="people"]'
-).value
-
-
-const { error } =
-await supabaseClient
+const {
+data,
+error
+} =
+await client
 .from('responses')
-.insert([
+.select('*')
+.order(
+'id',
 {
-feeling,
-discovery,
-surprise,
-people
+ascending:true
 }
-])
-
+)
 
 if(error){
 
-console.log(error)
-
-alert(
-'送出失敗，請確認 Supabase Policy'
-)
+alert(error.message)
 
 return
 
 }
 
+if(!data || data.length===0){
 
-alert('感謝你的分享！')
+document.getElementById('feeling')
+.innerText='目前沒有資料'
 
-location.reload()
+document.getElementById('discovery')
+.innerText='目前沒有資料'
+
+document.getElementById('surprise')
+.innerText='目前沒有資料'
+
+document.getElementById('people')
+.innerText='目前沒有資料'
+
+return
 
 }
-)
+
+allData = data
+
+showPage()
+
+}
+
+function showPage(){
+
+const item =
+allData[current]
+
+document.getElementById('feeling')
+.innerText =
+item.feeling || ''
+
+document.getElementById('discovery')
+.innerText =
+item.discovery || ''
+
+document.getElementById('surprise')
+.innerText =
+item.surprise || ''
+
+document.getElementById('people')
+.innerText =
+item.people || ''
+
+document.getElementById('page')
+.innerText =
+`${current+1} / ${allData.length}`
+
+}
+
+function nextPage(){
+
+if(current < allData.length-1){
+
+current++
+
+showPage()
+
+}
+
+}
+
+function prevPage(){
+
+if(current > 0){
+
+current--
+
+showPage()
+
+}
+
+}
+
+loadData()
 
 </script>
 
