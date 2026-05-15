@@ -37,6 +37,9 @@ overflow:hidden;
 
 }
 
+
+/* 左上貓 */
+
 .topCat{
 
 position:absolute;
@@ -50,6 +53,9 @@ top:20px;
 width:120px;
 
 }
+
+
+/* 標題 */
 
 .title{
 
@@ -65,7 +71,7 @@ margin-bottom:25px;
 }
 
 
-/* 標題下方橫條 */
+/* 橫條訊息 */
 
 .banner{
 
@@ -100,7 +106,7 @@ color:#444;
 
 position:relative;
 
-margin-bottom:40px;
+margin-bottom:45px;
 
 }
 
@@ -109,12 +115,12 @@ margin-bottom:40px;
 font-size:32px;
 font-weight:bold;
 
-margin-bottom:15px;
+margin-bottom:5px;
 
 }
 
 .red{
-color:#FF5F6D;
+color:#FF6B6B;
 }
 
 .green{
@@ -129,6 +135,21 @@ color:#FFA52B;
 color:#5A8DEE;
 }
 
+
+/* 說明文字 */
+
+.desc{
+
+font-size:16px;
+
+color:#666;
+
+margin-bottom:15px;
+
+}
+
+
+/* 輸入框 */
 
 .inputArea{
 
@@ -146,7 +167,7 @@ padding:20px;
 
 border-radius:25px;
 
-border:2px solid #EFEFEF;
+border:2px dashed #E5E5E5;
 
 background:#FAFAFA;
 
@@ -156,12 +177,15 @@ resize:none;
 
 }
 
+
+/* 小貓 */
+
 .smallCat{
 
 position:absolute;
 
-right:25px;
-bottom:15px;
+right:20px;
+bottom:10px;
 
 }
 
@@ -285,6 +309,7 @@ CROSS ROUND TABLE
 </div>
 
 
+<!-- 感想 -->
 
 <div class="section">
 
@@ -294,10 +319,16 @@ CROSS ROUND TABLE
 
 </div>
 
+<div class="desc">
+
+用一句話說說，今天參加活動的感受吧！
+
+</div>
+
 <div class="inputArea">
 
 <textarea required rows="4"
-placeholder="今天讓你印象最深刻的是..."></textarea>
+placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
 
@@ -311,6 +342,8 @@ placeholder="今天讓你印象最深刻的是..."></textarea>
 
 
 
+<!-- 發現 -->
+
 <div class="section">
 
 <div class="sectionTitle green">
@@ -319,10 +352,16 @@ placeholder="今天讓你印象最深刻的是..."></textarea>
 
 </div>
 
+<div class="desc">
+
+今天有沒有發現以前不知道的事或觀點呢？
+
+</div>
+
 <div class="inputArea">
 
 <textarea required rows="4"
-placeholder="今天發現了什麼新的觀點..."></textarea>
+placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
 
@@ -336,6 +375,8 @@ placeholder="今天發現了什麼新的觀點..."></textarea>
 
 
 
+<!-- 意外收穫 -->
+
 <div class="section">
 
 <div class="sectionTitle orange">
@@ -344,10 +385,16 @@ placeholder="今天發現了什麼新的觀點..."></textarea>
 
 </div>
 
+<div class="desc">
+
+今天讓你覺得最意外、最有收穫的是什麼呢？
+
+</div>
+
 <div class="inputArea">
 
 <textarea required rows="4"
-placeholder="今天最大的收穫是..."></textarea>
+placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
 
@@ -361,6 +408,8 @@ placeholder="今天最大的收穫是..."></textarea>
 
 
 
+<!-- 認識到的人 -->
+
 <div class="section">
 
 <div class="sectionTitle blue">
@@ -369,8 +418,14 @@ placeholder="今天最大的收穫是..."></textarea>
 
 </div>
 
+<div class="desc">
+
+今天認識了哪些新朋友呢？可以寫下名字或部門喔！
+
+</div>
+
 <input required
-placeholder="部門｜關鍵字，例如：IT｜咖啡">
+placeholder="請輸入...">
 
 </div>
 
@@ -383,6 +438,7 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 </button>
 
 
+
 <div class="bottom">
 
 <img src="./images/yarn.png">
@@ -392,7 +448,6 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 </div>
 
 </form>
-
 
 
 <script>
@@ -408,4 +463,5 @@ return false;
 </script>
 
 </body>
+
 </html>
