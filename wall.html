@@ -18,7 +18,11 @@ Cross Round Table Wall
 
 @page{
 size:A4 portrait;
-margin:10mm;
+margin:0;
+}
+
+*{
+box-sizing:border-box;
 }
 
 body{
@@ -35,9 +39,9 @@ display:flex;
 
 justify-content:center;
 
-padding:20px;
+align-items:flex-start;
 
-box-sizing:border-box;
+min-height:100vh;
 
 overflow:auto;
 
@@ -45,21 +49,19 @@ overflow:auto;
 
 .container{
 
-width:190mm;
+width:100%;
 
-min-height:257mm;
+max-width:210mm;
+
+min-height:297mm;
 
 background:#FFF8F1;
 
-padding:12mm;
-
-box-sizing:border-box;
+padding:14mm;
 
 display:flex;
 
 flex-direction:column;
-
-justify-content:flex-start;
 
 }
 
@@ -67,7 +69,7 @@ justify-content:flex-start;
 
 text-align:center;
 
-font-size:42px;
+font-size:44px;
 
 font-weight:900;
 
@@ -83,7 +85,7 @@ margin-bottom:14px;
 
 background:#FFF2D8;
 
-padding:12px;
+padding:12px 24px;
 
 border-radius:999px;
 
@@ -93,19 +95,21 @@ font-size:16px;
 
 font-weight:bold;
 
-max-width:480px;
+width:fit-content;
 
-margin:0 auto 28px auto;
+margin:0 auto 26px auto;
 
 }
 
 .grid{
 
-display:grid;
+display:flex;
 
-grid-template-columns:1fr;
+flex-direction:column;
 
-gap:20px;
+gap:18px;
+
+flex:1;
 
 }
 
@@ -113,13 +117,9 @@ gap:20px;
 
 background:white;
 
-border-radius:28px;
+border-radius:26px;
 
-padding:22px;
-
-height:240px;
-
-box-sizing:border-box;
+padding:20px;
 
 position:relative;
 
@@ -127,6 +127,14 @@ overflow:hidden;
 
 box-shadow:
 0 4px 14px rgba(0,0,0,.08);
+
+flex:1;
+
+min-height:210px;
+
+display:flex;
+
+flex-direction:column;
 
 }
 
@@ -137,6 +145,8 @@ font-size:34px;
 font-weight:900;
 
 margin-bottom:8px;
+
+line-height:1;
 
 }
 
@@ -160,9 +170,9 @@ color:#5A8DEE;
 
 font-size:14px;
 
-margin-bottom:12px;
-
 line-height:1.5;
+
+margin-bottom:12px;
 
 color:#444;
 
@@ -170,21 +180,19 @@ color:#444;
 
 .text{
 
-height:120px;
+flex:1;
 
-border:3px dashed #E3E3E3;
+border:3px dashed #E2E2E2;
 
 border-radius:22px;
 
 padding:18px;
 
-box-sizing:border-box;
-
 background:white;
 
-font-size:24px;
+font-size:22px;
 
-line-height:1.6;
+line-height:1.7;
 
 white-space:pre-wrap;
 
@@ -196,19 +204,19 @@ overflow:hidden;
 
 position:absolute;
 
-right:16px;
+right:14px;
 
-bottom:16px;
+bottom:14px;
 
-width:60px;
+width:58px;
 
 }
 
 .bottom{
 
-margin-top:28px;
-
 text-align:center;
+
+margin-top:24px;
 
 }
 
@@ -220,17 +228,17 @@ color:white;
 
 border:none;
 
-padding:12px 24px;
+padding:12px 22px;
 
-font-size:16px;
+font-size:15px;
 
 font-weight:bold;
 
-border-radius:16px;
+border-radius:14px;
 
 cursor:pointer;
 
-margin:0 8px;
+margin:0 6px;
 
 }
 
@@ -248,11 +256,27 @@ color:#143A84;
 
 @media print{
 
+html,
 body{
 
-padding:0;
+width:210mm;
+height:297mm;
+
+overflow:hidden;
 
 background:white;
+
+}
+
+.container{
+
+max-width:none;
+
+width:210mm;
+
+height:297mm;
+
+padding:10mm;
 
 }
 
@@ -263,21 +287,15 @@ display:none;
 
 }
 
-.container{
-
-width:190mm;
-
-height:277mm;
-
-padding:10mm;
-
-}
-
 .card{
 
 box-shadow:none;
 
 border:1px solid #DDD;
+
+min-height:auto;
+
+height:220px;
 
 }
 
@@ -320,7 +338,8 @@ border:1px solid #DDD;
 
 </div>
 
-<div class="text"
+<div
+class="text"
 id="feeling">
 
 載入中...
@@ -349,7 +368,8 @@ src="./images/cat-sleep.png">
 
 </div>
 
-<div class="text"
+<div
+class="text"
 id="discovery">
 
 載入中...
@@ -378,7 +398,8 @@ src="./images/cat-search.png">
 
 </div>
 
-<div class="text"
+<div
+class="text"
 id="surprise">
 
 載入中...
@@ -407,7 +428,8 @@ src="./images/cat-coffee.png">
 
 </div>
 
-<div class="text"
+<div
+class="text"
 id="people">
 
 載入中...
@@ -443,7 +465,8 @@ src="./images/cat-happy.png">
 
 </button>
 
-<div class="page"
+<div
+class="page"
 id="page">
 
 1 / 1
