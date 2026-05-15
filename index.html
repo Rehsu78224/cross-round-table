@@ -40,7 +40,6 @@ overflow:hidden;
 .topCat{
 
 position:absolute;
-
 left:20px;
 top:20px;
 
@@ -48,23 +47,23 @@ top:20px;
 
 .topCat img{
 
-width:110px;
+width:90px;
 
 }
 
 .title{
 
-font-size:55px;
+font-size:52px;
 font-weight:bold;
 color:#243B73;
 
 text-align:center;
 
-padding-left:110px;
-padding-right:180px;
+padding-left:90px;
+padding-right:220px;
 
-margin-top:20px;
-margin-bottom:50px;
+margin-top:25px;
+margin-bottom:60px;
 
 }
 
@@ -72,16 +71,16 @@ margin-bottom:50px;
 
 position:absolute;
 
-right:25px;
-top:35px;
+right:20px;
+top:30px;
 
 background:#FFF0D5;
 
-padding:15px;
+padding:16px;
 
 border-radius:25px;
 
-width:180px;
+width:220px;
 
 font-size:15px;
 
@@ -105,10 +104,21 @@ margin-bottom:10px;
 
 }
 
-.red{color:#FF6B6B;}
-.green{color:#69B95B;}
-.orange{color:#FFA52B;}
-.blue{color:#5A8DEE;}
+.red{
+color:#FF6B6B;
+}
+
+.green{
+color:#69B95B;
+}
+
+.orange{
+color:#FFA52B;
+}
+
+.blue{
+color:#5A8DEE;
+}
 
 .inputArea{
 
@@ -146,7 +156,7 @@ bottom:10px;
 
 .smallCat img{
 
-width:80px;
+width:65px;
 
 }
 
@@ -170,7 +180,7 @@ font-weight:bold;
 
 cursor:pointer;
 
-margin-top:15px;
+margin-top:20px;
 
 }
 
@@ -188,7 +198,7 @@ padding:0 20px;
 
 .bottom img{
 
-width:90px;
+width:70px;
 
 }
 
@@ -196,7 +206,7 @@ width:90px;
 
 .title{
 
-font-size:34px;
+font-size:32px;
 
 padding-left:0;
 padding-right:0;
@@ -207,7 +217,7 @@ margin-top:100px;
 
 .topCat img{
 
-width:90px;
+width:70px;
 
 }
 
@@ -217,13 +227,13 @@ position:static;
 
 width:auto;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 }
 
 .smallCat img{
 
-width:60px;
+width:50px;
 
 }
 
@@ -235,8 +245,7 @@ width:60px;
 
 <body>
 
-<div class="card">
-
+<form class="card" onsubmit="return validateForm()">
 
 <div class="topCat">
 
@@ -255,10 +264,9 @@ width:60px;
 
 <div class="title">
 
-CROSS ROUND TABLE ☕
+CROSS ROUND TABLE
 
 </div>
-
 
 
 <div class="section">
@@ -271,7 +279,7 @@ CROSS ROUND TABLE ☕
 
 <div class="inputArea">
 
-<textarea rows="4"
+<textarea required rows="4"
 placeholder="今天讓你印象最深刻的是..."></textarea>
 
 <div class="smallCat">
@@ -296,7 +304,7 @@ placeholder="今天讓你印象最深刻的是..."></textarea>
 
 <div class="inputArea">
 
-<textarea rows="4"
+<textarea required rows="4"
 placeholder="今天發現了什麼新的觀點..."></textarea>
 
 <div class="smallCat">
@@ -321,7 +329,7 @@ placeholder="今天發現了什麼新的觀點..."></textarea>
 
 <div class="inputArea">
 
-<textarea rows="4"
+<textarea required rows="4"
 placeholder="今天最大的收穫是..."></textarea>
 
 <div class="smallCat">
@@ -344,14 +352,14 @@ placeholder="今天最大的收穫是..."></textarea>
 
 </div>
 
-<input
+<input required
 placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </div>
 
 
 
-<button>
+<button type="submit">
 
 🎉 匿名送出
 
@@ -366,8 +374,20 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </div>
 
+</form>
 
-</div>
+
+<script>
+
+function validateForm(){
+
+alert("🎉 感謝分享！");
+
+return false;
+
+}
+
+</script>
 
 </body>
 
