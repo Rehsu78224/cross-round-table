@@ -1,15 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Cross Round Table Wall
+</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 
 @page{
 size:A4 landscape;
-margin:10mm;
+margin:8mm;
 }
 
 body{
 
 margin:0;
-
-padding:30px;
 
 background:#FFF8F1;
 
@@ -17,29 +31,31 @@ font-family:
 "Microsoft JhengHei",
 sans-serif;
 
+overflow:auto;
+
 display:flex;
 
 justify-content:center;
 
-box-sizing:border-box;
+align-items:flex-start;
 
-overflow:auto;
+padding:20px;
+
+box-sizing:border-box;
 
 }
 
 .container{
 
-width:265mm;
+width:277mm;
 
-min-height:180mm;
+min-height:190mm;
 
 background:#FFF8F1;
 
-padding:16mm;
+padding:10mm;
 
 box-sizing:border-box;
-
-border-radius:24px;
 
 display:flex;
 
@@ -53,15 +69,15 @@ justify-content:flex-start;
 
 text-align:center;
 
-font-size:52px;
+font-size:38px;
 
 font-weight:900;
 
 color:#143A84;
 
-line-height:1.2;
+line-height:1.1;
 
-margin-bottom:14px;
+margin-bottom:12px;
 
 }
 
@@ -69,19 +85,19 @@ margin-bottom:14px;
 
 background:#FFF2D8;
 
-padding:11px;
+padding:10px 24px;
 
 border-radius:999px;
 
 text-align:center;
 
-font-size:16px;
+font-size:14px;
 
 font-weight:bold;
 
-max-width:560px;
+width:fit-content;
 
-margin:0 auto 34px auto;
+margin:0 auto 20px auto;
 
 }
 
@@ -91,7 +107,7 @@ display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:24px;
+gap:16px;
 
 }
 
@@ -99,11 +115,11 @@ gap:24px;
 
 background:white;
 
-border-radius:30px;
+border-radius:24px;
 
-padding:24px;
+padding:18px;
 
-height:240px;
+height:220px;
 
 box-sizing:border-box;
 
@@ -112,17 +128,19 @@ position:relative;
 overflow:hidden;
 
 box-shadow:
-0 4px 14px rgba(0,0,0,.08);
+0 3px 10px rgba(0,0,0,.06);
 
 }
 
 .label{
 
-font-size:36px;
+font-size:28px;
 
 font-weight:900;
 
-margin-bottom:10px;
+margin-bottom:6px;
+
+line-height:1;
 
 }
 
@@ -144,37 +162,37 @@ color:#5A8DEE;
 
 .desc{
 
-font-size:14px;
+font-size:12px;
 
-line-height:1.5;
+line-height:1.4;
 
-margin-bottom:12px;
+margin-bottom:10px;
 
-color:#333;
+color:#444;
 
 }
 
 .text{
 
-height:120px;
+height:118px;
 
-border:3px dashed #E3E3E3;
+border:2px dashed #DDDDDD;
 
-border-radius:22px;
+border-radius:20px;
 
-padding:18px;
+padding:16px;
 
 box-sizing:border-box;
 
 background:white;
 
-font-size:24px;
+font-size:20px;
 
 line-height:1.6;
 
-overflow:hidden;
-
 white-space:pre-wrap;
+
+overflow:hidden;
 
 }
 
@@ -186,13 +204,13 @@ right:14px;
 
 bottom:14px;
 
-width:60px;
+width:52px;
 
 }
 
 .bottom{
 
-margin-top:30px;
+margin-top:18px;
 
 text-align:center;
 
@@ -206,81 +224,29 @@ color:white;
 
 border:none;
 
-padding:12px 24px;
+padding:10px 20px;
 
-font-size:16px;
+font-size:14px;
 
 font-weight:bold;
 
-border-radius:16px;
+border-radius:14px;
 
 cursor:pointer;
 
-margin:0 8px;
-
-transition:.2s;
-
-}
-
-button:hover{
-
-transform:scale(1.05);
+margin:0 5px;
 
 }
 
 .page{
 
-margin-top:14px;
+margin-top:10px;
 
-font-size:20px;
+font-size:16px;
 
 font-weight:bold;
 
 color:#143A84;
-
-}
-
-@media(max-width:1100px){
-
-body{
-padding:12px;
-}
-
-.container{
-
-width:100%;
-
-padding:20px;
-
-}
-
-.grid{
-
-grid-template-columns:1fr;
-
-}
-
-.card{
-
-height:auto;
-
-min-height:220px;
-
-}
-
-.text{
-
-height:120px;
-
-font-size:22px;
-
-}
-
-.title{
-
-font-size:40px;
-
-}
 
 }
 
@@ -294,6 +260,16 @@ background:white;
 
 }
 
+.container{
+
+width:277mm;
+
+height:190mm;
+
+padding:8mm;
+
+}
+
 button,
 .page{
 
@@ -301,40 +277,307 @@ display:none;
 
 }
 
-.container{
-
-width:257mm;
-
-height:170mm;
-
-padding:10mm;
-
-}
-
-.grid{
-
-gap:18px;
-
-}
-
 .card{
-
-height:220px;
 
 box-shadow:none;
 
 border:1px solid #DDD;
 
+height:205px;
+
 }
 
 .text{
 
-height:110px;
+height:108px;
 
-font-size:22px;
+font-size:18px;
 
 }
 
 }
 
 </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+
+🐱 CROSS ROUND TABLE ☕
+
+</div>
+
+<div class="banner">
+
+每一次交流，都可能成為未來合作的起點！
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+<div class="label red">
+
+❤️ 感想
+
+</div>
+
+<div class="desc">
+
+今天參加活動的感受
+
+</div>
+
+<div class="text"
+id="feeling">
+
+載入中...
+
+</div>
+
+<img
+class="cat"
+src="./images/cat-sleep.png">
+
+</div>
+
+
+
+<div class="card">
+
+<div class="label green">
+
+🔍 發現
+
+</div>
+
+<div class="desc">
+
+今天的新發現
+
+</div>
+
+<div class="text"
+id="discovery">
+
+載入中...
+
+</div>
+
+<img
+class="cat"
+src="./images/cat-search.png">
+
+</div>
+
+
+
+<div class="card">
+
+<div class="label orange">
+
+🎁 意外收穫
+
+</div>
+
+<div class="desc">
+
+今天最大的收穫
+
+</div>
+
+<div class="text"
+id="surprise">
+
+載入中...
+
+</div>
+
+<img
+class="cat"
+src="./images/cat-coffee.png">
+
+</div>
+
+
+
+<div class="card">
+
+<div class="label blue">
+
+👥 認識到的人
+
+</div>
+
+<div class="desc">
+
+這次交流認識的新朋友
+
+</div>
+
+<div class="text"
+id="people">
+
+載入中...
+
+</div>
+
+<img
+class="cat"
+src="./images/cat-happy.png">
+
+</div>
+
+</div>
+
+
+<div class="bottom">
+
+<button onclick="prevPage()">
+
+⬅ 上一頁
+
+</button>
+
+<button onclick="nextPage()">
+
+下一頁 ➡
+
+</button>
+
+<button onclick="window.print()">
+
+🖨 列印
+
+</button>
+
+<div class="page"
+id="page">
+
+1 / 1
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const supabaseUrl =
+'https://cvnhchajerbqaalxjtjo.supabase.co'
+
+const supabaseKey =
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
+
+const client =
+window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+)
+
+let allData = []
+
+let current = 0
+
+async function loadData(){
+
+const {
+data,
+error
+} =
+await client
+.from('responses')
+.select('*')
+.order(
+'id',
+{
+ascending:true
+}
+)
+
+if(error){
+
+alert(error.message)
+
+return
+
+}
+
+allData = data || []
+
+showPage()
+
+}
+
+function showPage(){
+
+if(allData.length===0){
+
+return
+
+}
+
+const item =
+allData[current]
+
+document.getElementById('feeling')
+.innerText =
+item.feeling || ''
+
+document.getElementById('discovery')
+.innerText =
+item.discovery || ''
+
+document.getElementById('surprise')
+.innerText =
+item.surprise || ''
+
+document.getElementById('people')
+.innerText =
+item.people || ''
+
+document.getElementById('page')
+.innerText =
+`${current+1} / ${allData.length}`
+
+}
+
+function nextPage(){
+
+if(current < allData.length-1){
+
+current++
+
+showPage()
+
+}
+
+}
+
+function prevPage(){
+
+if(current > 0){
+
+current--
+
+showPage()
+
+}
+
+}
+
+loadData()
+
+</script>
+
+</body>
+
+</html>
