@@ -9,7 +9,7 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Cross Round Table Wall
+Cross Round Table
 </title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -95,17 +95,30 @@ margin-bottom:18px;
 line-height:1.6;
 }
 
-.text{
+textarea,
+input{
+
+width:100%;
 border:3px dashed #E5E5E5;
 border-radius:24px;
 padding:24px;
-font-size:30px;
+font-size:28px;
 line-height:1.8;
 height:160px;
 overflow:auto;
 white-space:pre-wrap;
 box-sizing:border-box;
 background:white;
+font-family:
+"Microsoft JhengHei",
+sans-serif;
+resize:none;
+outline:none;
+
+}
+
+input{
+height:80px;
 }
 
 .cat{
@@ -124,11 +137,10 @@ button{
 background:#143A84;
 color:white;
 border:none;
-padding:16px 34px;
-font-size:22px;
+padding:18px 42px;
+font-size:24px;
 font-weight:bold;
-border-radius:18px;
-margin:10px;
+border-radius:20px;
 cursor:pointer;
 transition:.2s;
 }
@@ -137,19 +149,10 @@ button:hover{
 transform:scale(1.05);
 }
 
-.page{
-font-size:28px;
-font-weight:bold;
-margin-top:10px;
-color:#143A84;
-}
-
-.loading{
-text-align:center;
-font-size:32px;
-font-weight:bold;
-padding:100px;
-color:#143A84;
+.notice{
+margin-top:16px;
+font-size:16px;
+color:#777;
 }
 
 @media(max-width:900px){
@@ -166,29 +169,14 @@ font-size:46px;
 font-size:38px;
 }
 
-.text{
+textarea,
+input{
 font-size:24px;
 height:150px;
 }
 
-}
-
-@media print{
-
-button,
-.page{
-display:none;
-}
-
-body{
-padding:0;
-background:white;
-}
-
-.card{
-box-shadow:none;
-border:1px solid #DDD;
-break-inside:avoid;
+input{
+height:70px;
 }
 
 }
@@ -213,8 +201,7 @@ break-inside:avoid;
 
 </div>
 
-<div
-class="grid">
+<div class="grid">
 
 <div class="card">
 
@@ -230,13 +217,9 @@ class="grid">
 
 </div>
 
-<div
-class="text"
-id="feeling">
-
-載入中...
-
-</div>
+<textarea
+id="feeling"
+placeholder="請輸入..."></textarea>
 
 <img
 class="cat"
@@ -259,13 +242,9 @@ src="./images/cat-sleep.png">
 
 </div>
 
-<div
-class="text"
-id="discovery">
-
-載入中...
-
-</div>
+<textarea
+id="discovery"
+placeholder="請輸入..."></textarea>
 
 <img
 class="cat"
@@ -288,13 +267,9 @@ src="./images/cat-search.png">
 
 </div>
 
-<div
-class="text"
-id="surprise">
-
-載入中...
-
-</div>
+<textarea
+id="surprise"
+placeholder="請輸入..."></textarea>
 
 <img
 class="cat"
@@ -317,13 +292,9 @@ src="./images/cat-coffee.png">
 
 </div>
 
-<div
-class="text"
-id="people">
-
-載入中...
-
-</div>
+<input
+id="people"
+placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 <img
 class="cat"
@@ -336,23 +307,15 @@ src="./images/cat-happy.png">
 
 <div class="bottom">
 
-<button onclick="prevPage()">
+<button onclick="submitForm()">
 
-⬅ 上一頁
-
-</button>
-
-<button onclick="nextPage()">
-
-下一頁 ➡
+🎉 匿名送出
 
 </button>
 
-<div
-class="page"
-id="page">
+<div class="notice">
 
-1 / 1
+※ 不會記錄姓名與帳號，請安心分享
 
 </div>
 
@@ -375,110 +338,91 @@ supabaseUrl,
 supabaseKey
 )
 
-let allData = []
+async function submitForm(){
 
-let current = 0
+const feeling =
+document
+.getElementById('feeling')
+.value
+.trim()
 
-async function loadData(){
+const discovery =
+document
+.getElementById('discovery')
+.value
+.trim()
+
+const surprise =
+document
+.getElementById('surprise')
+.value
+.trim()
+
+const people =
+document
+.getElementById('people')
+.value
+.trim()
+
+if(
+!feeling ||
+!discovery ||
+!surprise ||
+!people
+){
+
+alert('請完整填寫所有欄位')
+
+return
+
+}
 
 const {
-data,
 error
 } =
 await client
 .from('responses')
-.select('*')
-.order(
-'id',
+.insert([
 {
-ascending:true
+feeling,
+discovery,
+surprise,
+people
 }
-)
+])
 
 if(error){
 
-alert(error.message)
+console.log(error)
+
+alert(
+'送出失敗：' +
+error.message
+)
 
 return
 
 }
 
-if(!data || data.length===0){
+alert('送出成功！')
 
-document.getElementById('feeling')
-.innerText='目前沒有資料'
+document
+.getElementById('feeling')
+.value=''
 
-document.getElementById('discovery')
-.innerText='目前沒有資料'
+document
+.getElementById('discovery')
+.value=''
 
-document.getElementById('surprise')
-.innerText='目前沒有資料'
+document
+.getElementById('surprise')
+.value=''
 
-document.getElementById('people')
-.innerText='目前沒有資料'
-
-return
-
-}
-
-allData = data
-
-showPage()
+document
+.getElementById('people')
+.value=''
 
 }
-
-function showPage(){
-
-const item =
-allData[current]
-
-document.getElementById('feeling')
-.innerText =
-item.feeling || ''
-
-document.getElementById('discovery')
-.innerText =
-item.discovery || ''
-
-document.getElementById('surprise')
-.innerText =
-item.surprise || ''
-
-document.getElementById('people')
-.innerText =
-item.people || ''
-
-document.getElementById('page')
-.innerText =
-`${current+1} / ${allData.length}`
-
-}
-
-function nextPage(){
-
-if(current < allData.length-1){
-
-current++
-
-showPage()
-
-}
-
-}
-
-function prevPage(){
-
-if(current > 0){
-
-current--
-
-showPage()
-
-}
-
-}
-
-loadData()
 
 </script>
 
