@@ -18,128 +18,114 @@ Cross Round Table Wall
 
 body{
 margin:0;
-padding:30px;
+padding:20px;
 background:#FFF8F1;
 font-family:
 "Microsoft JhengHei",
 sans-serif;
 }
 
+.container{
+max-width:1100px;
+margin:auto;
+}
+
 .title{
 text-align:center;
-font-size:64px;
+font-size:72px;
 font-weight:900;
 color:#143A84;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .banner{
 text-align:center;
-font-size:22px;
 background:#FFF2D8;
-padding:14px 24px;
+padding:16px;
 border-radius:40px;
+font-size:24px;
+font-weight:bold;
 max-width:720px;
 margin:auto;
-margin-bottom:50px;
-font-weight:bold;
+margin-bottom:40px;
 }
 
-.wall{
+.grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:20px;
 }
 
 .card{
-background:#FFFFFF;
+background:white;
 border-radius:35px;
-padding:30px;
+padding:24px;
 position:relative;
 box-shadow:
-0 10px 30px rgba(0,0,0,.08);
-overflow:hidden;
-break-inside:avoid;
-}
-
-.number{
-font-size:32px;
-font-weight:bold;
-color:#143A84;
-margin-bottom:25px;
-}
-
-.section{
-margin-bottom:24px;
+0 8px 24px rgba(0,0,0,.08);
+min-height:320px;
 }
 
 .label{
-font-size:28px;
+font-size:42px;
 font-weight:bold;
 margin-bottom:10px;
 }
 
-.red{
-color:#FF5F6D;
-}
+.red{color:#FF5F6D;}
+.green{color:#70B84D;}
+.orange{color:#FFA52B;}
+.blue{color:#5A8DEE;}
 
-.green{
-color:#5CB85C;
-}
-
-.orange{
-color:#FFA52B;
-}
-
-.blue{
-color:#5A8DEE;
+.desc{
+font-size:18px;
+margin-bottom:18px;
 }
 
 .text{
-background:#FAFAFA;
-padding:18px;
-border-radius:22px;
-font-size:20px;
+border:3px dashed #E5E5E5;
+border-radius:24px;
+padding:24px;
+font-size:28px;
 line-height:1.8;
+min-height:140px;
 white-space:pre-wrap;
-min-height:60px;
 }
 
 .cat{
 position:absolute;
-right:15px;
+right:18px;
 bottom:15px;
 width:85px;
-opacity:.95;
 }
 
-.footer{
+.bottom{
 text-align:center;
-margin-top:50px;
-font-size:24px;
+margin-top:40px;
+}
+
+button{
+background:#143A84;
+color:white;
+border:none;
+padding:16px 34px;
+font-size:22px;
 font-weight:bold;
-color:#143A84;
+border-radius:18px;
+margin:10px;
+cursor:pointer;
 }
 
-.loading{
-text-align:center;
+.page{
 font-size:28px;
 font-weight:bold;
-padding:80px;
+margin-top:15px;
 color:#143A84;
-}
-
-.error{
-text-align:center;
-font-size:24px;
-font-weight:bold;
-padding:80px;
-color:red;
 }
 
 @media(max-width:900px){
 
-.wall{
+.grid{
 grid-template-columns:1fr;
 }
 
@@ -151,15 +137,17 @@ font-size:42px;
 
 @media print{
 
+button,
+.page{
+display:none;
+}
+
 body{
-padding:10px;
-background:white;
+padding:0;
 }
 
 .card{
 break-inside:avoid;
-box-shadow:none;
-border:1px solid #DDD;
 }
 
 }
@@ -169,6 +157,8 @@ border:1px solid #DDD;
 </head>
 
 <body>
+
+<div class="container">
 
 <div class="title">
 
@@ -182,23 +172,142 @@ border:1px solid #DDD;
 
 </div>
 
-<div
-class="wall"
-id="wall">
+<div class="grid">
 
-<div class="loading">
+<div class="card">
 
-資料載入中...
+<div class="label red">
+
+❤️ 感想
+
+</div>
+
+<div class="desc">
+
+用一句話說說，今天參加活動的感受吧！
+
+</div>
+
+<div class="text"
+id="feeling">
+
+載入中...
+
+</div>
+
+<img class="cat"
+src="./images/cat-sleep.png">
+
+</div>
+
+
+<div class="card">
+
+<div class="label green">
+
+🔍 發現
+
+</div>
+
+<div class="desc">
+
+今天有沒有發現以前不知道的事或觀點呢？
+
+</div>
+
+<div class="text"
+id="discovery">
+
+載入中...
+
+</div>
+
+<img class="cat"
+src="./images/cat-search.png">
+
+</div>
+
+
+<div class="card">
+
+<div class="label orange">
+
+🎁 意外收穫
+
+</div>
+
+<div class="desc">
+
+今天讓你覺得最意外、最有收穫的是什麼呢？
+
+</div>
+
+<div class="text"
+id="surprise">
+
+載入中...
+
+</div>
+
+<img class="cat"
+src="./images/cat-coffee.png">
+
+</div>
+
+
+<div class="card">
+
+<div class="label blue">
+
+👥 認識到的人
+
+</div>
+
+<div class="desc">
+
+今天認識了哪些新朋友？可以寫下名字或部門喔！
+
+</div>
+
+<div class="text"
+id="people">
+
+載入中...
+
+</div>
+
+<img class="cat"
+src="./images/cat-happy.png">
 
 </div>
 
 </div>
 
-<div class="footer">
+<div class="bottom">
 
-✨ Cross Round Table Vol.01 ✨
+<button onclick="prevPage()">
+
+⬅ 上一頁
+
+</button>
+
+<button onclick="nextPage()">
+
+下一頁 ➡
+
+</button>
+
+<div class="page"
+id="page">
+
+1 / 1
 
 </div>
+
+</div>
+
+</div>
+
 
 <script>
 
@@ -206,23 +315,19 @@ const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
-'https://cvnhchajerbqaalxjtjo.supabase.co'
-
-const supabaseAnonKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 
 const client =
 window.supabase.createClient(
 supabaseUrl,
-supabaseAnonKey
+supabaseKey
 )
 
+let allData = []
+
+let current = 0
+
 async function loadData(){
-
-const wall =
-document.getElementById('wall')
-
-try{
 
 const {
 data,
@@ -234,135 +339,76 @@ await client
 .order(
 'id',
 {
-ascending:false
+ascending:true
 }
 )
 
 if(error){
 
-throw error
-
-}
-
-if(!data || data.length===0){
-
-wall.innerHTML = `
-
-<div class="loading">
-
-目前還沒有投稿資料
-
-</div>
-
-`
+alert(error.message)
 
 return
 
 }
 
-wall.innerHTML=''
+allData = data
 
-data.forEach((item,index)=>{
+showPage()
 
-wall.innerHTML += `
+}
 
-<div class="card">
+function showPage(){
 
-<div class="number">
+if(allData.length===0){
 
-#${index+1}
+return
 
-</div>
+}
 
-<div class="section">
+const item =
+allData[current]
 
-<div class="label red">
+document.getElementById('feeling')
+.innerText =
+item.feeling || ''
 
-❤️ 感想
+document.getElementById('discovery')
+.innerText =
+item.discovery || ''
 
-</div>
+document.getElementById('surprise')
+.innerText =
+item.surprise || ''
 
-<div class="text">
+document.getElementById('people')
+.innerText =
+item.people || ''
 
-${item.feeling || ''}
+document.getElementById('page')
+.innerText =
+`${current+1} / ${allData.length}`
 
-</div>
+}
 
-</div>
+function nextPage(){
 
-<div class="section">
+if(current < allData.length-1){
 
-<div class="label green">
+current++
 
-🔍 發現
+showPage()
 
-</div>
+}
 
-<div class="text">
+}
 
-${item.discovery || ''}
+function prevPage(){
 
-</div>
+if(current > 0){
 
-</div>
+current--
 
-<div class="section">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="text">
-
-${item.surprise || ''}
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="text">
-
-${item.people || ''}
-
-</div>
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-happy.png">
-
-</div>
-
-`
-
-})
-
-}catch(err){
-
-console.log(err)
-
-wall.innerHTML = `
-
-<div class="error">
-
-讀取失敗<br><br>
-
-${err.message}
-
-</div>
-
-`
+showPage()
 
 }
 
