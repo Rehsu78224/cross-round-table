@@ -6,11 +6,13 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1">
+content="width=device-width, initial-scale=1.0">
 
 <title>
 Cross Round Table Wall
 </title>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -19,7 +21,6 @@ margin:0;
 padding:30px;
 background:#FFF8F1;
 font-family:Arial,sans-serif;
-color:#444;
 }
 
 .title{
@@ -30,14 +31,15 @@ color:#143A84;
 margin-bottom:10px;
 }
 
-.sub{
-max-width:700px;
-margin:0 auto 40px;
-background:#FFF2D8;
-padding:15px;
-border-radius:25px;
+.banner{
 text-align:center;
 font-size:22px;
+background:#FFF2D8;
+padding:14px;
+border-radius:30px;
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
 font-weight:bold;
 }
 
@@ -50,22 +52,21 @@ gap:30px;
 .card{
 background:white;
 border-radius:35px;
-padding:30px;
+padding:25px;
 position:relative;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-min-height:520px;
-overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+break-inside:avoid;
 }
 
 .number{
-font-size:38px;
+font-size:32px;
 font-weight:bold;
 color:#143A84;
 margin-bottom:20px;
 }
 
 .section{
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .label{
@@ -94,31 +95,35 @@ color:#5A8DEE;
 background:#FAFAFA;
 padding:18px;
 border-radius:20px;
-font-size:22px;
-line-height:1.7;
-min-height:55px;
+font-size:20px;
+line-height:1.8;
+white-space:pre-wrap;
 }
 
 .cat{
 position:absolute;
-right:20px;
-bottom:20px;
-width:110px;
+right:15px;
+bottom:15px;
+width:80px;
 opacity:.95;
 }
 
-.footer{
-text-align:center;
-margin-top:50px;
-font-size:24px;
-font-weight:bold;
-color:#143A84;
+@media(max-width:900px){
+
+.wall{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:42px;
+}
+
 }
 
 @media print{
 
 body{
-padding:10px;
+padding:0;
 }
 
 .card{
@@ -139,23 +144,60 @@ break-inside:avoid;
 
 </div>
 
-<div class="sub">
+<div class="banner">
 
 每一次交流，都可能成為未來合作的起點！
 
 </div>
 
+<div class="wall" id="wall">
 
-<div class="wall">
+</div>
 
 
-<!-- 卡片1 -->
+<script>
+
+const supabaseUrl =
+'https://cvnhchajerbqaalxjtjo.supabase.co'
+
+const supabaseKey =
+'你的 anon key'
+
+const supabaseClient =
+supabase.createClient(
+supabaseUrl,
+supabaseKey
+)
+
+async function loadData(){
+
+const { data , error } =
+await supabaseClient
+.from('responses')
+.select('*')
+.order('id',{ascending:false})
+
+if(error){
+
+console.log(error)
+return
+
+}
+
+const wall =
+document.getElementById('wall')
+
+wall.innerHTML=''
+
+data.forEach((item,index)=>{
+
+wall.innerHTML += `
 
 <div class="card">
 
 <div class="number">
 
-#01
+#${index+1}
 
 </div>
 
@@ -169,7 +211,7 @@ break-inside:avoid;
 
 <div class="text">
 
-aa
+${item.feeling}
 
 </div>
 
@@ -186,7 +228,7 @@ aa
 
 <div class="text">
 
-bb
+${item.discovery}
 
 </div>
 
@@ -203,7 +245,7 @@ bb
 
 <div class="text">
 
-cc
+${item.surprise}
 
 </div>
 
@@ -220,259 +262,7 @@ cc
 
 <div class="text">
 
-dd
-
-</div>
-
-</div>
-
-<img class="cat"
-src="./images/cat-happy.png">
-
-</div>
-
-
-
-<!-- 卡片2 -->
-
-<div class="card">
-
-<div class="number">
-
-#02
-
-</div>
-
-<div class="section">
-
-<div class="label red">
-
-❤️ 感想
-
-</div>
-
-<div class="text">
-
-11
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label green">
-
-🔍 發現
-
-</div>
-
-<div class="text">
-
-22
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="text">
-
-33
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="text">
-
-44
-
-</div>
-
-</div>
-
-<img class="cat"
-src="./images/cat-search.png">
-
-</div>
-
-
-
-<!-- 卡片3 -->
-
-<div class="card">
-
-<div class="number">
-
-#03
-
-</div>
-
-<div class="section">
-
-<div class="label red">
-
-❤️ 感想
-
-</div>
-
-<div class="text">
-
-111
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label green">
-
-🔍 發現
-
-</div>
-
-<div class="text">
-
-222
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="text">
-
-333
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="text">
-
-444
-
-</div>
-
-</div>
-
-<img class="cat"
-src="./images/cat-sleep.png">
-
-</div>
-
-
-
-<!-- 卡片4 -->
-
-<div class="card">
-
-<div class="number">
-
-#04
-
-</div>
-
-<div class="section">
-
-<div class="label red">
-
-❤️ 感想
-
-</div>
-
-<div class="text">
-
-55
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label green">
-
-🔍 發現
-
-</div>
-
-<div class="text">
-
-66
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="text">
-
-77
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="text">
-
-88
+${item.people}
 
 </div>
 
@@ -483,15 +273,15 @@ src="./images/cat-coffee.png">
 
 </div>
 
+`
 
-</div>
+})
 
+}
 
-<div class="footer">
+loadData()
 
-✨ Cross Round Table Vol.01 ✨
-
-</div>
+</script>
 
 </body>
 
