@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-Cross Round Table Wall
-</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 
 @page{
-size:A4 landscape;
-margin:8mm;
+size:A4 portrait;
+margin:10mm;
 }
 
 body{
@@ -31,29 +15,27 @@ font-family:
 "Microsoft JhengHei",
 sans-serif;
 
-overflow:auto;
-
 display:flex;
 
 justify-content:center;
-
-align-items:flex-start;
 
 padding:20px;
 
 box-sizing:border-box;
 
+overflow:auto;
+
 }
 
 .container{
 
-width:277mm;
+width:190mm;
 
-min-height:190mm;
+min-height:257mm;
 
 background:#FFF8F1;
 
-padding:10mm;
+padding:12mm;
 
 box-sizing:border-box;
 
@@ -69,15 +51,15 @@ justify-content:flex-start;
 
 text-align:center;
 
-font-size:38px;
+font-size:42px;
 
 font-weight:900;
 
 color:#143A84;
 
-line-height:1.1;
+line-height:1.2;
 
-margin-bottom:12px;
+margin-bottom:14px;
 
 }
 
@@ -85,19 +67,19 @@ margin-bottom:12px;
 
 background:#FFF2D8;
 
-padding:10px 24px;
+padding:12px;
 
 border-radius:999px;
 
 text-align:center;
 
-font-size:14px;
+font-size:16px;
 
 font-weight:bold;
 
-width:fit-content;
+max-width:480px;
 
-margin:0 auto 20px auto;
+margin:0 auto 28px auto;
 
 }
 
@@ -105,9 +87,9 @@ margin:0 auto 20px auto;
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr;
 
-gap:16px;
+gap:20px;
 
 }
 
@@ -115,11 +97,11 @@ gap:16px;
 
 background:white;
 
-border-radius:24px;
+border-radius:28px;
 
-padding:18px;
+padding:22px;
 
-height:220px;
+height:240px;
 
 box-sizing:border-box;
 
@@ -128,19 +110,17 @@ position:relative;
 overflow:hidden;
 
 box-shadow:
-0 3px 10px rgba(0,0,0,.06);
+0 4px 14px rgba(0,0,0,.08);
 
 }
 
 .label{
 
-font-size:28px;
+font-size:34px;
 
 font-weight:900;
 
-margin-bottom:6px;
-
-line-height:1;
+margin-bottom:8px;
 
 }
 
@@ -162,11 +142,11 @@ color:#5A8DEE;
 
 .desc{
 
-font-size:12px;
+font-size:14px;
 
-line-height:1.4;
+margin-bottom:12px;
 
-margin-bottom:10px;
+line-height:1.5;
 
 color:#444;
 
@@ -174,19 +154,19 @@ color:#444;
 
 .text{
 
-height:118px;
+height:120px;
 
-border:2px dashed #DDDDDD;
+border:3px dashed #E3E3E3;
 
-border-radius:20px;
+border-radius:22px;
 
-padding:16px;
+padding:18px;
 
 box-sizing:border-box;
 
 background:white;
 
-font-size:20px;
+font-size:24px;
 
 line-height:1.6;
 
@@ -200,17 +180,17 @@ overflow:hidden;
 
 position:absolute;
 
-right:14px;
+right:16px;
 
-bottom:14px;
+bottom:16px;
 
-width:52px;
+width:60px;
 
 }
 
 .bottom{
 
-margin-top:18px;
+margin-top:28px;
 
 text-align:center;
 
@@ -224,25 +204,25 @@ color:white;
 
 border:none;
 
-padding:10px 20px;
+padding:12px 24px;
 
-font-size:14px;
+font-size:16px;
 
 font-weight:bold;
 
-border-radius:14px;
+border-radius:16px;
 
 cursor:pointer;
 
-margin:0 5px;
+margin:0 8px;
 
 }
 
 .page{
 
-margin-top:10px;
+margin-top:12px;
 
-font-size:16px;
+font-size:18px;
 
 font-weight:bold;
 
@@ -260,20 +240,20 @@ background:white;
 
 }
 
-.container{
-
-width:277mm;
-
-height:190mm;
-
-padding:8mm;
-
-}
-
 button,
 .page{
 
 display:none;
+
+}
+
+.container{
+
+width:190mm;
+
+height:277mm;
+
+padding:10mm;
 
 }
 
@@ -283,301 +263,8 @@ box-shadow:none;
 
 border:1px solid #DDD;
 
-height:205px;
-
-}
-
-.text{
-
-height:108px;
-
-font-size:18px;
-
 }
 
 }
 
 </style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="title">
-
-🐱 CROSS ROUND TABLE ☕
-
-</div>
-
-<div class="banner">
-
-每一次交流，都可能成為未來合作的起點！
-
-</div>
-
-
-<div class="grid">
-
-<div class="card">
-
-<div class="label red">
-
-❤️ 感想
-
-</div>
-
-<div class="desc">
-
-今天參加活動的感受
-
-</div>
-
-<div class="text"
-id="feeling">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-sleep.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label green">
-
-🔍 發現
-
-</div>
-
-<div class="desc">
-
-今天的新發現
-
-</div>
-
-<div class="text"
-id="discovery">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-search.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="desc">
-
-今天最大的收穫
-
-</div>
-
-<div class="text"
-id="surprise">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-coffee.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="desc">
-
-這次交流認識的新朋友
-
-</div>
-
-<div class="text"
-id="people">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-happy.png">
-
-</div>
-
-</div>
-
-
-<div class="bottom">
-
-<button onclick="prevPage()">
-
-⬅ 上一頁
-
-</button>
-
-<button onclick="nextPage()">
-
-下一頁 ➡
-
-</button>
-
-<button onclick="window.print()">
-
-🖨 列印
-
-</button>
-
-<div class="page"
-id="page">
-
-1 / 1
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-const supabaseUrl =
-'https://cvnhchajerbqaalxjtjo.supabase.co'
-
-const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
-
-const client =
-window.supabase.createClient(
-supabaseUrl,
-supabaseKey
-)
-
-let allData = []
-
-let current = 0
-
-async function loadData(){
-
-const {
-data,
-error
-} =
-await client
-.from('responses')
-.select('*')
-.order(
-'id',
-{
-ascending:true
-}
-)
-
-if(error){
-
-alert(error.message)
-
-return
-
-}
-
-allData = data || []
-
-showPage()
-
-}
-
-function showPage(){
-
-if(allData.length===0){
-
-return
-
-}
-
-const item =
-allData[current]
-
-document.getElementById('feeling')
-.innerText =
-item.feeling || ''
-
-document.getElementById('discovery')
-.innerText =
-item.discovery || ''
-
-document.getElementById('surprise')
-.innerText =
-item.surprise || ''
-
-document.getElementById('people')
-.innerText =
-item.people || ''
-
-document.getElementById('page')
-.innerText =
-`${current+1} / ${allData.length}`
-
-}
-
-function nextPage(){
-
-if(current < allData.length-1){
-
-current++
-
-showPage()
-
-}
-
-}
-
-function prevPage(){
-
-if(current > 0){
-
-current--
-
-showPage()
-
-}
-
-}
-
-loadData()
-
-</script>
-
-</body>
-
-</html>
