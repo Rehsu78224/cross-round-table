@@ -12,7 +12,7 @@ content="width=device-width, initial-scale=1.0">
 Cross Round Table Wall
 </title>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -20,26 +20,28 @@ body{
 margin:0;
 padding:30px;
 background:#FFF8F1;
-font-family:Arial,sans-serif;
+font-family:
+"Microsoft JhengHei",
+sans-serif;
 }
 
 .title{
 text-align:center;
-font-size:60px;
-font-weight:bold;
+font-size:64px;
+font-weight:900;
 color:#143A84;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .banner{
 text-align:center;
 font-size:22px;
 background:#FFF2D8;
-padding:14px;
-border-radius:30px;
-max-width:700px;
+padding:14px 24px;
+border-radius:40px;
+max-width:720px;
 margin:auto;
-margin-bottom:40px;
+margin-bottom:50px;
 font-weight:bold;
 }
 
@@ -50,24 +52,25 @@ gap:30px;
 }
 
 .card{
-background:white;
+background:#FFFFFF;
 border-radius:35px;
-padding:25px;
+padding:30px;
 position:relative;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-break-inside:avoid;
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
 overflow:hidden;
+break-inside:avoid;
 }
 
 .number{
 font-size:32px;
 font-weight:bold;
 color:#143A84;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .section{
-margin-bottom:20px;
+margin-bottom:24px;
 }
 
 .label{
@@ -95,10 +98,11 @@ color:#5A8DEE;
 .text{
 background:#FAFAFA;
 padding:18px;
-border-radius:20px;
+border-radius:22px;
 font-size:20px;
 line-height:1.8;
 white-space:pre-wrap;
+min-height:60px;
 }
 
 .cat{
@@ -117,6 +121,22 @@ font-weight:bold;
 color:#143A84;
 }
 
+.loading{
+text-align:center;
+font-size:28px;
+font-weight:bold;
+padding:80px;
+color:#143A84;
+}
+
+.error{
+text-align:center;
+font-size:24px;
+font-weight:bold;
+padding:80px;
+color:red;
+}
+
 @media(max-width:900px){
 
 .wall{
@@ -133,10 +153,13 @@ font-size:42px;
 
 body{
 padding:10px;
+background:white;
 }
 
 .card{
 break-inside:avoid;
+box-shadow:none;
+border:1px solid #DDD;
 }
 
 }
@@ -159,12 +182,17 @@ break-inside:avoid;
 
 </div>
 
-
-<div class="wall"
+<div
+class="wall"
 id="wall">
+
+<div class="loading">
+
+資料載入中...
 
 </div>
 
+</div>
 
 <div class="footer">
 
@@ -172,28 +200,35 @@ id="wall">
 
 </div>
 
-
 <script>
 
 const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
+'https://cvnhchajerbqaalxjtjo.supabase.co'
+
+const supabaseAnonKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 
-const supabaseClient =
-supabase.createClient(
+const client =
+window.supabase.createClient(
 supabaseUrl,
-supabaseKey
+supabaseAnonKey
 )
 
 async function loadData(){
+
+const wall =
+document.getElementById('wall')
+
+try{
 
 const {
 data,
 error
 } =
-await supabaseClient
+await client
 .from('responses')
 .select('*')
 .order(
@@ -205,19 +240,29 @@ ascending:false
 
 if(error){
 
-console.log(error)
+throw error
+
+}
+
+if(!data || data.length===0){
+
+wall.innerHTML = `
+
+<div class="loading">
+
+目前還沒有投稿資料
+
+</div>
+
+`
 
 return
 
 }
 
-const wall =
-document.getElementById('wall')
-
 wall.innerHTML=''
 
-data.forEach(
-(item,index)=>{
+data.forEach((item,index)=>{
 
 wall.innerHTML += `
 
@@ -228,7 +273,6 @@ wall.innerHTML += `
 #${index+1}
 
 </div>
-
 
 <div class="section">
 
@@ -246,8 +290,6 @@ ${item.feeling || ''}
 
 </div>
 
-
-
 <div class="section">
 
 <div class="label green">
@@ -263,8 +305,6 @@ ${item.discovery || ''}
 </div>
 
 </div>
-
-
 
 <div class="section">
 
@@ -282,8 +322,6 @@ ${item.surprise || ''}
 
 </div>
 
-
-
 <div class="section">
 
 <div class="label blue">
@@ -300,15 +338,33 @@ ${item.people || ''}
 
 </div>
 
-<img class="cat"
+<img
+class="cat"
 src="./images/cat-happy.png">
 
 </div>
 
 `
 
+})
+
+}catch(err){
+
+console.log(err)
+
+wall.innerHTML = `
+
+<div class="error">
+
+讀取失敗<br><br>
+
+${err.message}
+
+</div>
+
+`
+
 }
-)
 
 }
 
