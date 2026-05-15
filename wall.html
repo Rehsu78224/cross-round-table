@@ -18,75 +18,109 @@ Cross Round Table Wall
 
 @page{
 size:A4 landscape;
-margin:12mm;
+margin:10mm;
 }
 
 body{
+
 margin:0;
+
 background:#FFF8F1;
+
 font-family:
 "Microsoft JhengHei",
 sans-serif;
-overflow-y:auto;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
+overflow:auto;
+
 }
 
 .container{
 
-width:257mm;
-min-height:170mm;
+width:250mm;
 
-margin:30px auto;
+min-height:160mm;
 
-padding:18mm;
+padding:10mm;
 
 box-sizing:border-box;
 
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
 
 }
 
 .title{
+
 text-align:center;
-font-size:52px;
+
+font-size:42px;
+
 font-weight:900;
+
 color:#143A84;
-margin-bottom:14px;
+
+margin-bottom:10px;
+
 }
 
 .banner{
+
 text-align:center;
+
 background:#FFF2D8;
-padding:12px;
+
+padding:10px;
+
 border-radius:40px;
-font-size:18px;
+
+font-size:16px;
+
 font-weight:bold;
-max-width:620px;
+
+max-width:500px;
+
 margin:auto;
-margin-bottom:34px;
+
+margin-bottom:26px;
+
 }
 
 .grid{
+
 display:grid;
+
 grid-template-columns:1fr 1fr;
-gap:22px;
+
+gap:18px;
+
 }
 
 .card{
 
 background:white;
 
-border-radius:30px;
+border-radius:28px;
 
-padding:22px;
+padding:20px;
 
 position:relative;
 
 box-shadow:
-0 6px 18px rgba(0,0,0,.08);
+0 4px 14px rgba(0,0,0,.08);
 
-height:255px;
+height:250px;
 
 box-sizing:border-box;
 
@@ -95,9 +129,13 @@ overflow:hidden;
 }
 
 .label{
-font-size:40px;
+
+font-size:34px;
+
 font-weight:bold;
+
 margin-bottom:8px;
+
 }
 
 .red{
@@ -117,26 +155,30 @@ color:#5A8DEE;
 }
 
 .desc{
-font-size:15px;
-margin-bottom:14px;
+
+font-size:13px;
+
+margin-bottom:12px;
+
 line-height:1.5;
+
 }
 
 .text{
 
 border:3px dashed #E5E5E5;
 
-border-radius:24px;
+border-radius:22px;
 
 padding:18px;
 
-font-size:28px;
+font-size:22px;
 
 line-height:1.7;
 
-height:150px;
+height:145px;
 
-overflow:auto;
+overflow:hidden;
 
 white-space:pre-wrap;
 
@@ -147,70 +189,56 @@ background:white;
 }
 
 .cat{
+
 position:absolute;
-right:16px;
-bottom:16px;
-width:68px;
+
+right:14px;
+
+bottom:14px;
+
+width:60px;
+
 }
 
 .bottom{
+
 text-align:center;
-margin-top:30px;
-padding-bottom:20px;
+
+margin-top:24px;
+
 }
 
 button{
-background:#143A84;
-color:white;
-border:none;
-padding:15px 30px;
-font-size:18px;
-font-weight:bold;
-border-radius:18px;
-margin:0 8px;
-cursor:pointer;
-transition:.2s;
-}
 
-button:hover{
-transform:scale(1.05);
+background:#143A84;
+
+color:white;
+
+border:none;
+
+padding:12px 24px;
+
+font-size:16px;
+
+font-weight:bold;
+
+border-radius:16px;
+
+margin:0 6px;
+
+cursor:pointer;
+
 }
 
 .page{
-font-size:22px;
+
+font-size:18px;
+
 font-weight:bold;
-margin-top:16px;
+
+margin-top:10px;
+
 color:#143A84;
-}
-
-@media(max-width:1100px){
-
-.container{
-width:auto;
-padding:20px;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.title{
-font-size:40px;
-}
-
-.label{
-font-size:34px;
-}
-
-.text{
-font-size:22px;
-height:140px;
-}
-
-button{
-width:100%;
-margin-top:12px;
-}
 
 }
 
@@ -223,34 +251,16 @@ display:none;
 
 body{
 background:white;
+min-height:auto;
 }
 
 .container{
-
-width:257mm;
-height:170mm;
-
-margin:auto;
-
-padding:14mm;
-
-display:flex;
-justify-content:center;
-
-}
-
-.grid{
-gap:16px;
+padding:0;
 }
 
 .card{
-
-height:235px;
-
 box-shadow:none;
-
 border:1px solid #DDD;
-
 }
 
 }
@@ -275,7 +285,6 @@ border:1px solid #DDD;
 
 </div>
 
-
 <div class="grid">
 
 <div class="card">
@@ -288,24 +297,21 @@ border:1px solid #DDD;
 
 <div class="desc">
 
-用一句話說說，今天參加活動的感受吧！
+今天參加活動的感受
 
 </div>
 
-<div
-class="text"
+<div class="text"
 id="feeling">
 
 載入中...
 
 </div>
 
-<img
-class="cat"
+<img class="cat"
 src="./images/cat-sleep.png">
 
 </div>
-
 
 
 <div class="card">
@@ -318,24 +324,21 @@ src="./images/cat-sleep.png">
 
 <div class="desc">
 
-今天有沒有發現以前不知道的事或觀點呢？
+今天的新發現
 
 </div>
 
-<div
-class="text"
+<div class="text"
 id="discovery">
 
 載入中...
 
 </div>
 
-<img
-class="cat"
+<img class="cat"
 src="./images/cat-search.png">
 
 </div>
-
 
 
 <div class="card">
@@ -348,24 +351,21 @@ src="./images/cat-search.png">
 
 <div class="desc">
 
-今天讓你覺得最意外、最有收穫的是什麼呢？
+今天最大的收穫
 
 </div>
 
-<div
-class="text"
+<div class="text"
 id="surprise">
 
 載入中...
 
 </div>
 
-<img
-class="cat"
+<img class="cat"
 src="./images/cat-coffee.png">
 
 </div>
-
 
 
 <div class="card">
@@ -378,26 +378,23 @@ src="./images/cat-coffee.png">
 
 <div class="desc">
 
-今天認識了哪些新朋友？可以寫下名字或部門喔！
+這次交流認識的新朋友
 
 </div>
 
-<div
-class="text"
+<div class="text"
 id="people">
 
 載入中...
 
 </div>
 
-<img
-class="cat"
+<img class="cat"
 src="./images/cat-happy.png">
 
 </div>
 
 </div>
-
 
 
 <div class="bottom">
@@ -420,8 +417,7 @@ src="./images/cat-happy.png">
 
 </button>
 
-<div
-class="page"
+<div class="page"
 id="page">
 
 1 / 1
@@ -437,9 +433,6 @@ id="page">
 
 const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
-
-const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
 
 const client =
 window.supabase.createClient(
@@ -475,31 +468,19 @@ return
 
 }
 
-if(!data || data.length===0){
-
-document.getElementById('feeling')
-.innerText='目前沒有資料'
-
-document.getElementById('discovery')
-.innerText='目前沒有資料'
-
-document.getElementById('surprise')
-.innerText='目前沒有資料'
-
-document.getElementById('people')
-.innerText='目前沒有資料'
-
-return
-
-}
-
-allData = data
+allData = data || []
 
 showPage()
 
 }
 
 function showPage(){
+
+if(allData.length===0){
+
+return
+
+}
 
 const item =
 allData[current]
@@ -523,11 +504,6 @@ item.people || ''
 document.getElementById('page')
 .innerText =
 `${current+1} / ${allData.length}`
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-})
 
 }
 
