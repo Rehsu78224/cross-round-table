@@ -1,121 +1,131 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cross Round Table</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <style>
 
 body{
 margin:0;
-padding:20px;
+padding:0;
 background:#FFF8F1;
 font-family:Arial,sans-serif;
-display:flex;
-justify-content:center;
 }
 
-.card{
-width:100%;
+.container{
 max-width:1100px;
-background:white;
-padding:35px;
-border-radius:35px;
-position:relative;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-overflow:hidden;
+margin:auto;
+padding:20px;
 }
 
-.topCat{
-position:absolute;
-left:20px;
-top:20px;
-}
-
-.topCat img{
-width:120px;
+.header{
+text-align:center;
+margin-bottom:30px;
 }
 
 .title{
-font-size:65px;
+font-size:72px;
 font-weight:bold;
 color:#143A84;
-text-align:center;
-margin-top:10px;
-margin-bottom:25px;
+margin-bottom:10px;
 }
 
 .banner{
-display:flex;
-justify-content:center;
-margin-bottom:40px;
-}
-
-.bannerText{
 background:#FFF2D8;
-padding:14px 40px;
+padding:15px;
 border-radius:30px;
-font-size:18px;
+max-width:700px;
+margin:auto;
+font-size:24px;
 font-weight:bold;
 }
 
-.section{
-margin-bottom:45px;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:35px;
+padding:25px;
 position:relative;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.sectionTitle{
-font-size:32px;
-font-weight:bold;
-margin-bottom:5px;
+.card h2{
+font-size:40px;
+margin-top:0;
+margin-bottom:10px;
+}
+
+.red{
+color:#FF5F6D;
+}
+
+.green{
+color:#5CB85C;
+}
+
+.orange{
+color:#FFA52B;
+}
+
+.blue{
+color:#5A8DEE;
 }
 
 .desc{
-font-size:16px;
-color:#666;
-margin-bottom:15px;
-}
-
-.red{color:#FF5F6D;}
-.green{color:#5CB85C;}
-.orange{color:#FFA52B;}
-.blue{color:#5A8DEE;}
-
-.inputArea{
-position:relative;
-}
-
-textarea,input{
-width:100%;
-box-sizing:border-box;
-padding:20px;
-border-radius:25px;
-border:2px solid #EFEFEF;
-background:#FAFAFA;
 font-size:18px;
+margin-bottom:15px;
+line-height:1.6;
+}
+
+textarea,
+input{
+width:100%;
+border:3px dashed #E5E5E5;
+padding:18px;
+font-size:20px;
+border-radius:25px;
+box-sizing:border-box;
+background:#FFFDFB;
 resize:none;
 }
 
-.smallCat{
-position:absolute;
-right:20px;
-bottom:10px;
+textarea{
+height:180px;
 }
 
-.smallCat img{
+.cat{
+position:absolute;
+right:20px;
+bottom:15px;
 width:90px;
 }
 
+.submit-wrap{
+text-align:center;
+margin-top:40px;
+}
+
 button{
-width:100%;
-padding:20px;
-border:none;
-border-radius:25px;
-background:#153C91;
+background:#143A84;
 color:white;
+border:none;
+padding:20px 60px;
 font-size:28px;
 font-weight:bold;
+border-radius:25px;
 cursor:pointer;
 }
 
@@ -123,44 +133,21 @@ button:hover{
 opacity:.9;
 }
 
-.bottom{
-display:flex;
-justify-content:space-between;
-margin-top:25px;
-}
-
-.bottom img{
-width:90px;
-}
-
-.message{
-display:none;
-margin-top:20px;
-padding:15px;
-background:#E8F8EA;
-border-radius:15px;
+.note{
 text-align:center;
-font-weight:bold;
+margin-top:25px;
+font-size:16px;
+color:#777;
 }
 
-@media(max-width:768px){
+@media(max-width:900px){
 
 .title{
-font-size:35px;
-margin-top:90px;
+font-size:48px;
 }
 
-.topCat img{
-width:80px;
-}
-
-.smallCat img{
-width:60px;
-}
-
-.bannerText{
-font-size:14px;
-padding:10px;
+.grid{
+grid-template-columns:1fr;
 }
 
 }
@@ -171,230 +158,160 @@ padding:10px;
 
 <body>
 
-<form
-class="card"
-id="roundForm"
-action="https://formspree.io/f/xbdwvzyn"
-method="POST"
->
+<div class="container">
 
-<input type="hidden"
-name="提交編號"
-id="submitID">
-
-<input type="hidden"
-name="提交時間"
-id="submitTime">
-
-
-<div class="topCat">
-<img src="./images/cat-coffee.png">
-</div>
-
+<div class="header">
 
 <div class="title">
-CROSS ROUND TABLE
+🐱 CROSS ROUND TABLE ☕
 </div>
-
 
 <div class="banner">
-
-<div class="bannerText">
-🐾 每一次交流 都可能成為未來合作的起點！
+每一次交流，都可能成為未來合作的起點！
 </div>
 
 </div>
 
+<form id="roundForm">
 
-<div class="section">
+<div class="grid">
 
-<div class="sectionTitle red">
-❤️ 感想
-</div>
+<div class="card">
+
+<h2 class="red">❤️ 感想</h2>
 
 <div class="desc">
 用一句話說說，今天參加活動的感受吧！
 </div>
 
-<div class="inputArea">
-
 <textarea
-name="感想"
-required
-rows="4"
-placeholder="請輸入..."></textarea>
+name="feeling"
+placeholder="請輸入..."
+required></textarea>
 
-<div class="smallCat">
-<img src="./images/cat-sleep.png">
-</div>
+<img class="cat" src="./images/cat-sleep.png">
 
 </div>
-</div>
 
+<div class="card">
 
-
-<div class="section">
-
-<div class="sectionTitle green">
-🔍 發現
-</div>
+<h2 class="green">🔍 發現</h2>
 
 <div class="desc">
 今天有沒有發現以前不知道的事或觀點呢？
 </div>
 
-<div class="inputArea">
-
 <textarea
-name="發現"
-required
-rows="4"
-placeholder="請輸入..."></textarea>
+name="discovery"
+placeholder="請輸入..."
+required></textarea>
 
-<div class="smallCat">
-<img src="./images/cat-search.png">
-</div>
+<img class="cat" src="./images/cat-search.png">
 
 </div>
 
-</div>
+<div class="card">
 
-
-
-<div class="section">
-
-<div class="sectionTitle orange">
-🎁 意外收穫
-</div>
+<h2 class="orange">🎁 意外收穫</h2>
 
 <div class="desc">
 今天讓你覺得最意外、最有收穫的是什麼呢？
 </div>
 
-<div class="inputArea">
-
 <textarea
-name="意外收穫"
-required
-rows="4"
-placeholder="請輸入..."></textarea>
+name="surprise"
+placeholder="請輸入..."
+required></textarea>
 
-<div class="smallCat">
-<img src="./images/cat-happy.png">
-</div>
+<img class="cat" src="./images/cat-coffee.png">
 
 </div>
 
-</div>
+<div class="card">
 
-
-
-<div class="section">
-
-<div class="sectionTitle blue">
-👥 認識到的人
-</div>
+<h2 class="blue">👥 認識到的人</h2>
 
 <div class="desc">
 今天認識了哪些新朋友呢？可以寫下名字或部門喔！
 </div>
 
 <input
-name="認識到的人"
-required
-placeholder="請輸入...">
+name="people"
+placeholder="部門｜關鍵字，例如：IT｜咖啡"
+required>
+
+<img class="cat" src="./images/cat-happy.png">
 
 </div>
 
+</div>
+
+<div class="submit-wrap">
 
 <button type="submit">
-
 🎉 匿名送出
-
 </button>
-
-<div class="message" id="successMsg">
-
-🎉 感謝分享！
 
 </div>
 
-
-<div class="bottom">
-
-<img src="./images/yarn.png">
-
-<img src="./images/paws-hearts.png">
-
+<div class="note">
+※ 不會記錄姓名與帳號，請安心分享
 </div>
 
 </form>
 
+</div>
 
 <script>
 
-const form=document.getElementById("roundForm");
+const supabase = window.supabase.createClient(
+'https://cvnhchajerbqaalxjtjo.supabase.co',
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
+)
 
-function generateID(){
 
-let now=new Date();
+document
+.getElementById('roundForm')
+.addEventListener('submit', async (e)=>{
 
-return "RT-" +
-now.getFullYear() +
-String(now.getMonth()+1).padStart(2,"0") +
-String(now.getDate()).padStart(2,"0") +
-"-" +
-Math.floor(Math.random()*1000);
 
-}
+ e.preventDefault()
 
-document.getElementById(
-"submitID"
-).value=generateID();
+ const feeling = document.querySelector('[name="feeling"]').value
+ const discovery = document.querySelector('[name="discovery"]').value
+ const surprise = document.querySelector('[name="surprise"]').value
+ const people = document.querySelector('[name="people"]').value
 
-document.getElementById(
-"submitTime"
-).value=new Date().toLocaleString();
 
-form.addEventListener(
-"submit",
-async(e)=>{
+ const { error } = await supabase
+ .from('responses')
+ .insert([
+ {
+ feeling,
+ discovery,
+ surprise,
+ people
+ }
+ ])
 
-e.preventDefault();
 
-const data=
-new FormData(form);
+ if(error){
 
-const response=
-await fetch(
-form.action,
-{
-method:"POST",
-body:data,
-headers:{
-Accept:"application/json"
-}
-}
-);
+ alert('送出失敗，請再試一次')
+ console.log(error)
+ return
 
-if(response.ok){
+ }
 
-document.getElementById(
-"successMsg"
-).style.display="block";
 
-form.reset();
+ alert('感謝你的分享！')
 
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
+ location.reload()
 
-}
-
-});
+})
 
 </script>
 
 </body>
+
 </html>
