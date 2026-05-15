@@ -30,10 +30,10 @@ sans-serif;
 }
 
 .container{
-width:277mm;
-height:190mm;
+width:257mm;
+height:170mm;
 margin:auto;
-padding:8mm;
+padding:18mm;
 box-sizing:border-box;
 overflow:hidden;
 }
@@ -43,7 +43,7 @@ text-align:center;
 font-size:24px;
 font-weight:900;
 color:#143A84;
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .banner{
@@ -55,23 +55,23 @@ font-size:12px;
 font-weight:bold;
 max-width:360px;
 margin:auto;
-margin-bottom:10px;
+margin-bottom:18px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
+gap:18px;
 }
 
 .card{
 background:white;
-border-radius:20px;
-padding:14px;
+border-radius:22px;
+padding:16px;
 position:relative;
 box-shadow:
 0 4px 10px rgba(0,0,0,.08);
-height:235px;
+height:220px;
 box-sizing:border-box;
 overflow:hidden;
 }
@@ -79,7 +79,7 @@ overflow:hidden;
 .label{
 font-size:24px;
 font-weight:bold;
-margin-bottom:5px;
+margin-bottom:6px;
 }
 
 .red{
@@ -101,7 +101,7 @@ color:#5A8DEE;
 .desc{
 font-size:10px;
 margin-bottom:8px;
-line-height:1.4;
+line-height:1.5;
 }
 
 .text{
@@ -109,8 +109,8 @@ border:2px dashed #E5E5E5;
 border-radius:18px;
 padding:12px;
 font-size:16px;
-line-height:1.6;
-height:130px;
+line-height:1.7;
+height:122px;
 overflow:hidden;
 white-space:pre-wrap;
 box-sizing:border-box;
@@ -126,7 +126,7 @@ width:52px;
 
 .bottom{
 text-align:center;
-margin-top:10px;
+margin-top:14px;
 }
 
 button{
@@ -144,7 +144,7 @@ cursor:pointer;
 .page{
 font-size:16px;
 font-weight:bold;
-margin-top:6px;
+margin-top:8px;
 color:#143A84;
 }
 
@@ -356,12 +356,12 @@ const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
+'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const client =
 window.supabase.createClient(
 supabaseUrl,
-supabaseKey
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 )
 
 let allData = []
