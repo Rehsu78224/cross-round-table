@@ -18,7 +18,7 @@ Cross Round Table Wall
 
 @page{
 size:A4 landscape;
-margin:10mm;
+margin:12mm;
 }
 
 body{
@@ -31,54 +31,73 @@ overflow-y:auto;
 }
 
 .container{
-max-width:1400px;
-margin:auto;
-padding:40px 60px 80px;
+
+width:257mm;
+min-height:170mm;
+
+margin:30px auto;
+
+padding:18mm;
+
 box-sizing:border-box;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+
 }
 
 .title{
 text-align:center;
-font-size:56px;
+font-size:52px;
 font-weight:900;
 color:#143A84;
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 .banner{
 text-align:center;
 background:#FFF2D8;
-padding:14px;
+padding:12px;
 border-radius:40px;
-font-size:22px;
+font-size:18px;
 font-weight:bold;
-max-width:700px;
+max-width:620px;
 margin:auto;
-margin-bottom:40px;
+margin-bottom:34px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:24px;
+gap:22px;
 }
 
 .card{
+
 background:white;
+
 border-radius:30px;
-padding:24px;
+
+padding:22px;
+
 position:relative;
+
 box-shadow:
 0 6px 18px rgba(0,0,0,.08);
-min-height:320px;
+
+height:255px;
+
 box-sizing:border-box;
+
 overflow:hidden;
+
 }
 
 .label{
-font-size:44px;
+font-size:40px;
 font-weight:bold;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .red{
@@ -98,43 +117,54 @@ color:#5A8DEE;
 }
 
 .desc{
-font-size:18px;
-margin-bottom:16px;
+font-size:15px;
+margin-bottom:14px;
 line-height:1.5;
 }
 
 .text{
+
 border:3px dashed #E5E5E5;
+
 border-radius:24px;
+
 padding:18px;
-font-size:32px;
+
+font-size:28px;
+
 line-height:1.7;
-height:160px;
+
+height:150px;
+
 overflow:auto;
+
 white-space:pre-wrap;
+
 box-sizing:border-box;
+
 background:white;
+
 }
 
 .cat{
 position:absolute;
 right:16px;
 bottom:16px;
-width:72px;
+width:68px;
 }
 
 .bottom{
 text-align:center;
-margin-top:40px;
-padding-bottom:40px;
+margin-top:30px;
+padding-bottom:20px;
 }
 
 button{
 background:#143A84;
 color:white;
 border:none;
-padding:16px 34px;
-font-size:22px;
+padding:15px 30px;
+font-size:18px;
 font-weight:bold;
 border-radius:18px;
 margin:0 8px;
@@ -147,15 +177,16 @@ transform:scale(1.05);
 }
 
 .page{
-font-size:24px;
+font-size:22px;
 font-weight:bold;
-margin-top:18px;
+margin-top:16px;
 color:#143A84;
 }
 
 @media(max-width:1100px){
 
 .container{
+width:auto;
 padding:20px;
 }
 
@@ -164,16 +195,16 @@ grid-template-columns:1fr;
 }
 
 .title{
-font-size:42px;
+font-size:40px;
 }
 
 .label{
-font-size:36px;
+font-size:34px;
 }
 
 .text{
-font-size:24px;
-height:150px;
+font-size:22px;
+height:140px;
 }
 
 button{
@@ -195,18 +226,31 @@ background:white;
 }
 
 .container{
-padding:0;
-max-width:none;
-}
 
-.card{
-box-shadow:none;
-border:1px solid #DDD;
-break-inside:avoid;
+width:257mm;
+height:170mm;
+
+margin:auto;
+
+padding:14mm;
+
+display:flex;
+justify-content:center;
+
 }
 
 .grid{
-gap:12px;
+gap:16px;
+}
+
+.card{
+
+height:235px;
+
+box-shadow:none;
+
+border:1px solid #DDD;
+
 }
 
 }
@@ -395,12 +439,12 @@ const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
 
 const client =
 window.supabase.createClient(
 supabaseUrl,
-supabaseKey
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
 )
 
 let allData = []
