@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Cross Round Table</title>
 
 <style>
@@ -19,171 +18,91 @@ justify-content:center;
 }
 
 .card{
-
 width:100%;
 max-width:1100px;
-
 background:white;
-
 padding:35px;
-
 border-radius:35px;
-
 position:relative;
-
 box-shadow:0 8px 25px rgba(0,0,0,.08);
-
 overflow:hidden;
-
 }
 
-
-/* 左上貓 */
-
 .topCat{
-
 position:absolute;
 left:20px;
 top:20px;
-
 }
 
 .topCat img{
-
 width:120px;
-
 }
 
-
-/* 標題 */
-
 .title{
-
 font-size:65px;
 font-weight:bold;
 color:#143A84;
-
 text-align:center;
-
 margin-top:10px;
 margin-bottom:25px;
-
 }
 
-
-/* 橫條訊息 */
-
 .banner{
-
 display:flex;
-
 justify-content:center;
-
 margin-bottom:40px;
-
 }
 
 .bannerText{
-
 background:#FFF2D8;
-
 padding:14px 40px;
-
 border-radius:30px;
-
 font-size:18px;
-
 font-weight:bold;
-
-color:#444;
-
 }
 
-
-/* 區塊 */
-
 .section{
-
-position:relative;
-
 margin-bottom:45px;
-
+position:relative;
 }
 
 .sectionTitle{
-
 font-size:32px;
 font-weight:bold;
-
 margin-bottom:5px;
-
 }
-
-.red{
-color:#FF6B6B;
-}
-
-.green{
-color:#5CB85C;
-}
-
-.orange{
-color:#FFA52B;
-}
-
-.blue{
-color:#5A8DEE;
-}
-
-
-/* 說明文字 */
 
 .desc{
-
 font-size:16px;
-
 color:#666;
-
 margin-bottom:15px;
-
 }
 
-
-/* 輸入框 */
+.red{color:#FF5F6D;}
+.green{color:#5CB85C;}
+.orange{color:#FFA52B;}
+.blue{color:#5A8DEE;}
 
 .inputArea{
-
 position:relative;
-
 }
 
 textarea,input{
 
 width:100%;
-
 box-sizing:border-box;
-
 padding:20px;
-
 border-radius:25px;
-
-border:2px dashed #E5E5E5;
-
+border:2px solid #EFEFEF;
 background:#FAFAFA;
-
 font-size:18px;
-
 resize:none;
 
 }
 
-
-/* 小貓 */
-
 .smallCat{
 
 position:absolute;
-
 right:20px;
 bottom:10px;
 
@@ -195,42 +114,30 @@ width:90px;
 
 }
 
-
-/* 按鈕 */
-
 button{
 
 width:100%;
-
 padding:20px;
-
 border:none;
-
 border-radius:25px;
-
 background:#153C91;
-
 color:white;
-
 font-size:28px;
-
 font-weight:bold;
-
 cursor:pointer;
-
-margin-top:20px;
 
 }
 
+button:hover{
 
-/* 底部 */
+opacity:.9;
+
+}
 
 .bottom{
 
 display:flex;
-
 justify-content:space-between;
-
 margin-top:25px;
 
 }
@@ -241,37 +148,36 @@ width:90px;
 
 }
 
+.message{
 
-/* 手機版 */
+display:none;
+margin-top:20px;
+padding:15px;
+background:#E8F8EA;
+border-radius:15px;
+text-align:center;
+font-weight:bold;
+
+}
 
 @media(max-width:768px){
 
 .title{
-
 font-size:35px;
-
 margin-top:90px;
-
 }
 
 .topCat img{
-
 width:80px;
-
 }
 
 .smallCat img{
-
 width:60px;
-
 }
 
 .bannerText{
-
 font-size:14px;
-
-padding:10px 15px;
-
+padding:10px;
 }
 
 }
@@ -282,7 +188,12 @@ padding:10px 15px;
 
 <body>
 
-<form class="card" onsubmit="return validateForm()">
+<form
+class="card"
+id="roundForm"
+action="https://formspree.io/f/xbdwvzyn"
+method="POST"
+>
 
 <div class="topCat">
 
@@ -309,7 +220,6 @@ CROSS ROUND TABLE
 </div>
 
 
-<!-- 感想 -->
 
 <div class="section">
 
@@ -327,7 +237,10 @@ CROSS ROUND TABLE
 
 <div class="inputArea">
 
-<textarea required rows="4"
+<textarea
+name="感想"
+required
+rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
@@ -341,8 +254,6 @@ placeholder="請輸入..."></textarea>
 </div>
 
 
-
-<!-- 發現 -->
 
 <div class="section">
 
@@ -360,7 +271,10 @@ placeholder="請輸入..."></textarea>
 
 <div class="inputArea">
 
-<textarea required rows="4"
+<textarea
+name="發現"
+required
+rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
@@ -374,8 +288,6 @@ placeholder="請輸入..."></textarea>
 </div>
 
 
-
-<!-- 意外收穫 -->
 
 <div class="section">
 
@@ -393,7 +305,10 @@ placeholder="請輸入..."></textarea>
 
 <div class="inputArea">
 
-<textarea required rows="4"
+<textarea
+name="意外收穫"
+required
+rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
@@ -407,8 +322,6 @@ placeholder="請輸入..."></textarea>
 </div>
 
 
-
-<!-- 認識到的人 -->
 
 <div class="section">
 
@@ -424,7 +337,9 @@ placeholder="請輸入..."></textarea>
 
 </div>
 
-<input required
+<input
+name="認識到的人"
+required
 placeholder="請輸入...">
 
 </div>
@@ -437,6 +352,12 @@ placeholder="請輸入...">
 
 </button>
 
+
+<div class="message" id="successMsg">
+
+🎉 感謝分享！
+
+</div>
 
 
 <div class="bottom">
@@ -452,16 +373,43 @@ placeholder="請輸入...">
 
 <script>
 
-function validateForm(){
+const form=document.getElementById("roundForm");
 
-alert("🎉 感謝分享！");
+form.addEventListener("submit",async(e)=>{
 
-return false;
+e.preventDefault();
+
+const data=new FormData(form);
+
+const response=await fetch(
+form.action,
+{
+method:"POST",
+body:data,
+headers:{
+Accept:"application/json"
+}
+}
+);
+
+if(response.ok){
+
+document.getElementById(
+"successMsg"
+).style.display="block";
+
+form.reset();
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
 
 }
+
+});
 
 </script>
 
 </body>
-
 </html>
