@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,7 +87,6 @@ position:relative;
 }
 
 textarea,input{
-
 width:100%;
 box-sizing:border-box;
 padding:20px;
@@ -97,25 +95,19 @@ border:2px solid #EFEFEF;
 background:#FAFAFA;
 font-size:18px;
 resize:none;
-
 }
 
 .smallCat{
-
 position:absolute;
 right:20px;
 bottom:10px;
-
 }
 
 .smallCat img{
-
 width:90px;
-
 }
 
 button{
-
 width:100%;
 padding:20px;
 border:none;
@@ -125,31 +117,23 @@ color:white;
 font-size:28px;
 font-weight:bold;
 cursor:pointer;
-
 }
 
 button:hover{
-
 opacity:.9;
-
 }
 
 .bottom{
-
 display:flex;
 justify-content:space-between;
 margin-top:25px;
-
 }
 
 .bottom img{
-
 width:90px;
-
 }
 
 .message{
-
 display:none;
 margin-top:20px;
 padding:15px;
@@ -157,7 +141,6 @@ background:#E8F8EA;
 border-radius:15px;
 text-align:center;
 font-weight:bold;
-
 }
 
 @media(max-width:768px){
@@ -195,44 +178,42 @@ action="https://formspree.io/f/xbdwvzyn"
 method="POST"
 >
 
+<input type="hidden"
+name="提交編號"
+id="submitID">
+
+<input type="hidden"
+name="提交時間"
+id="submitTime">
+
+
 <div class="topCat">
-
 <img src="./images/cat-coffee.png">
-
 </div>
 
 
 <div class="title">
-
 CROSS ROUND TABLE
-
 </div>
 
 
 <div class="banner">
 
 <div class="bannerText">
-
 🐾 每一次交流 都可能成為未來合作的起點！
-
 </div>
 
 </div>
-
 
 
 <div class="section">
 
 <div class="sectionTitle red">
-
 ❤️ 感想
-
 </div>
 
 <div class="desc">
-
 用一句話說說，今天參加活動的感受吧！
-
 </div>
 
 <div class="inputArea">
@@ -244,13 +225,10 @@ rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
-
 <img src="./images/cat-sleep.png">
-
 </div>
 
 </div>
-
 </div>
 
 
@@ -258,15 +236,11 @@ placeholder="請輸入..."></textarea>
 <div class="section">
 
 <div class="sectionTitle green">
-
 🔍 發現
-
 </div>
 
 <div class="desc">
-
 今天有沒有發現以前不知道的事或觀點呢？
-
 </div>
 
 <div class="inputArea">
@@ -278,9 +252,7 @@ rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
-
 <img src="./images/cat-search.png">
-
 </div>
 
 </div>
@@ -292,15 +264,11 @@ placeholder="請輸入..."></textarea>
 <div class="section">
 
 <div class="sectionTitle orange">
-
 🎁 意外收穫
-
 </div>
 
 <div class="desc">
-
 今天讓你覺得最意外、最有收穫的是什麼呢？
-
 </div>
 
 <div class="inputArea">
@@ -312,9 +280,7 @@ rows="4"
 placeholder="請輸入..."></textarea>
 
 <div class="smallCat">
-
 <img src="./images/cat-happy.png">
-
 </div>
 
 </div>
@@ -326,15 +292,11 @@ placeholder="請輸入..."></textarea>
 <div class="section">
 
 <div class="sectionTitle blue">
-
 👥 認識到的人
-
 </div>
 
 <div class="desc">
-
 今天認識了哪些新朋友呢？可以寫下名字或部門喔！
-
 </div>
 
 <input
@@ -345,13 +307,11 @@ placeholder="請輸入...">
 </div>
 
 
-
 <button type="submit">
 
 🎉 匿名送出
 
 </button>
-
 
 <div class="message" id="successMsg">
 
@@ -375,13 +335,38 @@ placeholder="請輸入...">
 
 const form=document.getElementById("roundForm");
 
-form.addEventListener("submit",async(e)=>{
+function generateID(){
+
+let now=new Date();
+
+return "RT-" +
+now.getFullYear() +
+String(now.getMonth()+1).padStart(2,"0") +
+String(now.getDate()).padStart(2,"0") +
+"-" +
+Math.floor(Math.random()*1000);
+
+}
+
+document.getElementById(
+"submitID"
+).value=generateID();
+
+document.getElementById(
+"submitTime"
+).value=new Date().toLocaleString();
+
+form.addEventListener(
+"submit",
+async(e)=>{
 
 e.preventDefault();
 
-const data=new FormData(form);
+const data=
+new FormData(form);
 
-const response=await fetch(
+const response=
+await fetch(
 form.action,
 {
 method:"POST",
