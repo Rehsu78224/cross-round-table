@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Cross Round Table</title>
 
@@ -19,36 +19,46 @@ justify-content:center;
 }
 
 .card{
+
 position:relative;
+
 width:100%;
-max-width:850px;
+max-width:900px;
+
 background:white;
-padding:35px;
+
+padding:40px;
+
 border-radius:35px;
+
 box-shadow:0 8px 30px rgba(0,0,0,.08);
+
 overflow:hidden;
+
 }
 
 .title{
-font-size:55px;
+
+font-size:60px;
 font-weight:bold;
-text-align:center;
 color:#243B73;
-margin-top:20px;
-margin-bottom:40px;
+text-align:center;
+margin-top:30px;
+margin-bottom:60px;
+
 }
 
 .topCat{
 
 position:absolute;
-left:15px;
+left:10px;
 top:15px;
 
 }
 
 .topCat img{
 
-width:150px;
+width:170px;
 
 }
 
@@ -61,36 +71,21 @@ top:100px;
 background:#FFF0D5;
 padding:18px;
 border-radius:25px;
-width:180px;
+
+width:200px;
+
 font-size:16px;
-line-height:1.6;
 
-}
-
-.paw{
-
-position:absolute;
-font-size:30px;
-opacity:.25;
-
-}
-
-.p1{
-
-left:180px;
-top:25px;
-
-}
-
-.p2{
-
-right:250px;
-top:25px;
+line-height:1.8;
 
 }
 
 .section{
-margin-bottom:30px;
+
+position:relative;
+
+margin-bottom:35px;
+
 }
 
 .sectionTitle{
@@ -101,61 +96,92 @@ margin-bottom:10px;
 
 }
 
-.red{
-color:#FF6B6B;
-}
-
-.green{
-color:#68B85F;
-}
-
-.orange{
-color:#FFAA33;
-}
-
-.blue{
-color:#5A8DEE;
-}
+.red{color:#FF6B6B;}
+.green{color:#68B85F;}
+.orange{color:#FFAA33;}
+.blue{color:#5A8DEE;}
 
 textarea,input{
 
 width:100%;
 box-sizing:border-box;
+
 padding:18px;
+
 border-radius:20px;
+
 border:2px solid #EFEFEF;
+
 font-size:16px;
+
 background:#FAFAFA;
+
 resize:none;
+
+}
+
+.catRight{
+
+position:absolute;
+right:20px;
+bottom:10px;
+
+}
+
+.catRight img{
+
+width:120px;
 
 }
 
 button{
 
 width:100%;
+
 padding:18px;
+
 border:none;
+
 border-radius:20px;
+
 background:#243B73;
+
 color:white;
+
 font-size:22px;
+
 font-weight:bold;
+
 cursor:pointer;
+
+}
+
+.bottom{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:30px;
+
+align-items:center;
+
+}
+
+.bottom img{
+
+width:120px;
 
 }
 
 @media(max-width:768px){
 
 .title{
-
-font-size:36px;
-
+font-size:35px;
 }
 
 .topCat img{
-
 width:100px;
-
 }
 
 .rightBubble{
@@ -163,6 +189,18 @@ width:100px;
 position:static;
 width:auto;
 margin-bottom:20px;
+
+}
+
+.catRight img{
+
+width:70px;
+
+}
+
+.bottom img{
+
+width:80px;
 
 }
 
@@ -178,12 +216,10 @@ margin-bottom:20px;
 
 <div class="topCat">
 
-<img src="./images/cat.png">
+<img src="./images/cat-coffee.png">
 
 </div>
 
-<div class="paw p1">🐾</div>
-<div class="paw p2">🐾</div>
 
 <div class="title">
 
@@ -191,12 +227,14 @@ CROSS ROUND TABLE ☕
 
 </div>
 
+
 <div class="rightBubble">
 
 🐱 每一次交流<br>
 都可能成為未來合作的起點！
 
 </div>
+
 
 
 <div class="section">
@@ -210,7 +248,14 @@ CROSS ROUND TABLE ☕
 <textarea rows="4"
 placeholder="今天讓你印象最深刻的是..."></textarea>
 
+<div class="catRight">
+
+<img src="./images/cat-sleep.png">
+
 </div>
+
+</div>
+
 
 
 <div class="section">
@@ -224,7 +269,14 @@ placeholder="今天讓你印象最深刻的是..."></textarea>
 <textarea rows="4"
 placeholder="今天發現了什麼新的觀點..."></textarea>
 
+<div class="catRight">
+
+<img src="./images/cat-search.png">
+
 </div>
+
+</div>
+
 
 
 <div class="section">
@@ -238,7 +290,14 @@ placeholder="今天發現了什麼新的觀點..."></textarea>
 <textarea rows="4"
 placeholder="今天最大的收穫是..."></textarea>
 
+<div class="catRight">
+
+<img src="./images/cat-happy.png">
+
 </div>
+
+</div>
+
 
 
 <div class="section">
@@ -261,8 +320,16 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </button>
 
+
+<div class="bottom">
+
+<img src="./images/yarn.png">
+
+<img src="./images/paws-hearts.png">
+
+</div>
+
 </div>
 
 </body>
-
 </html>
