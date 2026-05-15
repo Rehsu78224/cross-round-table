@@ -22,7 +22,6 @@ justify-content:center;
 
 width:100%;
 max-width:900px;
-
 background:white;
 
 padding:35px;
@@ -37,11 +36,17 @@ overflow:hidden;
 
 }
 
+
+/* 左上貓 */
+
 .topCat{
 
 position:absolute;
+
 left:20px;
 top:20px;
+
+z-index:5;
 
 }
 
@@ -51,46 +56,53 @@ width:90px;
 
 }
 
+
+/* 標題 */
+
 .title{
 
-font-size:52px;
+font-size:54px;
 font-weight:bold;
+
 color:#243B73;
 
 text-align:center;
 
-padding-left:90px;
-padding-right:220px;
-
-margin-top:25px;
-margin-bottom:60px;
+margin-top:15px;
+margin-bottom:70px;
 
 }
+
+
+/* 右上對話框 */
 
 .rightBubble{
 
 position:absolute;
 
 right:20px;
-top:30px;
+top:20px;
 
 background:#FFF0D5;
 
-padding:16px;
+padding:14px 18px;
 
 border-radius:25px;
 
-width:220px;
+width:170px;
 
-font-size:15px;
+font-size:14px;
 
 line-height:1.7;
 
+box-shadow:0 3px 10px rgba(0,0,0,.05);
+
 }
 
-.section{
 
-position:relative;
+/* 區塊 */
+
+.section{
 
 margin-bottom:35px;
 
@@ -100,6 +112,7 @@ margin-bottom:35px;
 
 font-size:30px;
 font-weight:bold;
+
 margin-bottom:10px;
 
 }
@@ -126,9 +139,13 @@ position:relative;
 
 }
 
+
+/* 輸入框 */
+
 textarea,input{
 
 width:100%;
+
 box-sizing:border-box;
 
 padding:18px;
@@ -145,20 +162,26 @@ resize:none;
 
 }
 
+
+/* 小貓 */
+
 .smallCat{
 
 position:absolute;
 
-right:15px;
-bottom:10px;
+right:10px;
+bottom:8px;
 
 }
 
 .smallCat img{
 
-width:65px;
+width:60px;
 
 }
+
+
+/* 按鈕 */
 
 button{
 
@@ -180,9 +203,12 @@ font-weight:bold;
 
 cursor:pointer;
 
-margin-top:20px;
+margin-top:15px;
 
 }
+
+
+/* 底部裝飾 */
 
 .bottom{
 
@@ -192,7 +218,7 @@ justify-content:space-between;
 
 margin-top:20px;
 
-padding:0 20px;
+padding:0 15px;
 
 }
 
@@ -202,16 +228,16 @@ width:70px;
 
 }
 
+
+/* 手機 */
+
 @media(max-width:768px){
 
 .title{
 
-font-size:32px;
+font-size:34px;
 
-padding-left:0;
-padding-right:0;
-
-margin-top:100px;
+margin-top:80px;
 
 }
 
@@ -227,13 +253,13 @@ position:static;
 
 width:auto;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
 .smallCat img{
 
-width:50px;
+width:45px;
 
 }
 
@@ -245,7 +271,9 @@ width:50px;
 
 <body>
 
+
 <form class="card" onsubmit="return validateForm()">
+
 
 <div class="topCat">
 
@@ -256,10 +284,12 @@ width:50px;
 
 <div class="rightBubble">
 
-🐱 每一次交流<br>
+🐾 每一次交流<br>
+
 都可能成為未來合作的起點！
 
 </div>
+
 
 
 <div class="title">
@@ -267,6 +297,7 @@ width:50px;
 CROSS ROUND TABLE
 
 </div>
+
 
 
 <div class="section">
@@ -374,6 +405,7 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </div>
 
+
 </form>
 
 
@@ -389,6 +421,6 @@ return false;
 
 </script>
 
-</body>
 
+</body>
 </html>
