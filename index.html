@@ -21,7 +21,8 @@ justify-content:center;
 .card{
 
 width:100%;
-max-width:900px;
+max-width:1100px;
+
 background:white;
 
 padding:35px;
@@ -36,66 +37,59 @@ overflow:hidden;
 
 }
 
-
-/* 左上貓 */
-
 .topCat{
 
 position:absolute;
-
 left:20px;
 top:20px;
-
-z-index:5;
 
 }
 
 .topCat img{
 
-width:90px;
+width:120px;
 
 }
-
-
-/* 標題 */
 
 .title{
 
-font-size:54px;
+font-size:65px;
 font-weight:bold;
-
-color:#243B73;
+color:#143A84;
 
 text-align:center;
 
-margin-top:15px;
-margin-bottom:70px;
+margin-top:10px;
+margin-bottom:25px;
 
 }
 
 
-/* 右上對話框 */
+/* 標題下方橫條 */
 
-.rightBubble{
+.banner{
 
-position:absolute;
+display:flex;
 
-right:20px;
-top:20px;
+justify-content:center;
 
-background:#FFF0D5;
+margin-bottom:40px;
 
-padding:14px 18px;
+}
 
-border-radius:25px;
+.bannerText{
 
-width:170px;
+background:#FFF2D8;
 
-font-size:14px;
+padding:14px 40px;
 
-line-height:1.7;
+border-radius:30px;
 
-box-shadow:0 3px 10px rgba(0,0,0,.05);
+font-size:18px;
+
+font-weight:bold;
+
+color:#444;
 
 }
 
@@ -104,25 +98,27 @@ box-shadow:0 3px 10px rgba(0,0,0,.05);
 
 .section{
 
-margin-bottom:35px;
+position:relative;
+
+margin-bottom:40px;
 
 }
 
 .sectionTitle{
 
-font-size:30px;
+font-size:32px;
 font-weight:bold;
 
-margin-bottom:10px;
+margin-bottom:15px;
 
 }
 
 .red{
-color:#FF6B6B;
+color:#FF5F6D;
 }
 
 .green{
-color:#69B95B;
+color:#5CB85C;
 }
 
 .orange{
@@ -133,14 +129,12 @@ color:#FFA52B;
 color:#5A8DEE;
 }
 
+
 .inputArea{
 
 position:relative;
 
 }
-
-
-/* 輸入框 */
 
 textarea,input{
 
@@ -148,35 +142,32 @@ width:100%;
 
 box-sizing:border-box;
 
-padding:18px;
+padding:20px;
 
-border-radius:20px;
+border-radius:25px;
 
 border:2px solid #EFEFEF;
 
 background:#FAFAFA;
 
-font-size:16px;
+font-size:18px;
 
 resize:none;
 
 }
 
-
-/* 小貓 */
-
 .smallCat{
 
 position:absolute;
 
-right:10px;
-bottom:8px;
+right:25px;
+bottom:15px;
 
 }
 
 .smallCat img{
 
-width:60px;
+width:90px;
 
 }
 
@@ -187,28 +178,28 @@ button{
 
 width:100%;
 
-padding:18px;
+padding:20px;
 
 border:none;
 
-border-radius:20px;
+border-radius:25px;
 
-background:#243B73;
+background:#153C91;
 
 color:white;
 
-font-size:22px;
+font-size:28px;
 
 font-weight:bold;
 
 cursor:pointer;
 
-margin-top:15px;
+margin-top:20px;
 
 }
 
 
-/* 底部裝飾 */
+/* 底部 */
 
 .bottom{
 
@@ -216,50 +207,46 @@ display:flex;
 
 justify-content:space-between;
 
-margin-top:20px;
-
-padding:0 15px;
+margin-top:25px;
 
 }
 
 .bottom img{
 
-width:70px;
+width:90px;
 
 }
 
 
-/* 手機 */
+/* 手機版 */
 
 @media(max-width:768px){
 
 .title{
 
-font-size:34px;
+font-size:35px;
 
-margin-top:80px;
+margin-top:90px;
 
 }
 
 .topCat img{
 
-width:70px;
-
-}
-
-.rightBubble{
-
-position:static;
-
-width:auto;
-
-margin-bottom:25px;
+width:80px;
 
 }
 
 .smallCat img{
 
-width:45px;
+width:60px;
+
+}
+
+.bannerText{
+
+font-size:14px;
+
+padding:10px 15px;
 
 }
 
@@ -271,9 +258,7 @@ width:45px;
 
 <body>
 
-
 <form class="card" onsubmit="return validateForm()">
-
 
 <div class="topCat">
 
@@ -282,19 +267,20 @@ width:45px;
 </div>
 
 
-<div class="rightBubble">
+<div class="title">
 
-🐾 每一次交流<br>
-
-都可能成為未來合作的起點！
+CROSS ROUND TABLE
 
 </div>
 
 
+<div class="banner">
 
-<div class="title">
+<div class="bannerText">
 
-CROSS ROUND TABLE
+🐾 每一次交流 都可能成為未來合作的起點！
+
+</div>
 
 </div>
 
@@ -405,8 +391,8 @@ placeholder="部門｜關鍵字，例如：IT｜咖啡">
 
 </div>
 
-
 </form>
+
 
 
 <script>
@@ -420,7 +406,6 @@ return false;
 }
 
 </script>
-
 
 </body>
 </html>
