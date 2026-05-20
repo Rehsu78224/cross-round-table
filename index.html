@@ -16,61 +16,108 @@ Cross Round Table
 
 <style>
 
+*{
+box-sizing:border-box;
+}
+
 body{
+
 margin:0;
-padding:20px;
+padding:24px;
+
 background:#FFF8F1;
+
 font-family:
 "Microsoft JhengHei",
 sans-serif;
+
 }
 
 .container{
-max-width:1200px;
+
+max-width:1280px;
+
 margin:auto;
+
 }
 
 .title{
+
 text-align:center;
-font-size:72px;
+
+font-size:68px;
+
 font-weight:900;
+
 color:#143A84;
-margin-bottom:10px;
+
+line-height:1.1;
+
+margin-bottom:18px;
+
 }
 
 .banner{
+
 text-align:center;
+
 background:#FFF2D8;
-padding:16px;
-border-radius:40px;
+
+padding:18px 28px;
+
+border-radius:999px;
+
 font-size:24px;
+
 font-weight:bold;
+
 max-width:760px;
+
 margin:auto;
-margin-bottom:40px;
+
+margin-bottom:38px;
+
 }
 
 .grid{
+
 display:grid;
+
 grid-template-columns:1fr 1fr;
-gap:22px;
+
+gap:26px;
+
 }
 
 .card{
+
 background:white;
-border-radius:35px;
-padding:24px;
+
+border-radius:34px;
+
+padding:26px;
+
 position:relative;
+
 box-shadow:
-0 8px 24px rgba(0,0,0,.08);
+0 8px 26px rgba(0,0,0,.08);
+
 min-height:340px;
+
 overflow:hidden;
+
 }
 
 .label{
-font-size:46px;
-font-weight:bold;
-margin-bottom:10px;
+
+font-size:48px;
+
+font-weight:900;
+
+margin-bottom:12px;
+
+line-height:1;
+
 }
 
 .red{
@@ -89,70 +136,178 @@ color:#FFA52B;
 color:#5A8DEE;
 }
 
-.desc{
-font-size:18px;
-margin-bottom:18px;
-line-height:1.6;
+.purple{
+color:#9B59B6;
 }
 
-textarea,
-input{
+.desc{
+
+font-size:18px;
+
+line-height:1.7;
+
+margin-bottom:18px;
+
+color:#444;
+
+}
+
+textarea{
 
 width:100%;
+
+height:170px;
+
 border:3px dashed #E5E5E5;
+
 border-radius:24px;
+
 padding:24px;
+
 font-size:28px;
+
 line-height:1.8;
-height:160px;
-overflow:auto;
-white-space:pre-wrap;
-box-sizing:border-box;
+
 background:white;
+
+resize:none;
+
+outline:none;
+
 font-family:
 "Microsoft JhengHei",
 sans-serif;
-resize:none;
-outline:none;
 
 }
 
-input{
-height:80px;
+textarea:focus{
+
+border-color:#143A84;
+
 }
 
 .cat{
+
 position:absolute;
+
 right:18px;
+
 bottom:18px;
+
 width:88px;
+
+pointer-events:none;
+
+}
+
+.rating-card{
+
+background:white;
+
+border-radius:34px;
+
+padding:26px;
+
+box-shadow:
+0 8px 26px rgba(0,0,0,.08);
+
+margin-top:26px;
+
+text-align:center;
+
+}
+
+.stars{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:24px;
+
+flex-wrap:wrap;
+
+}
+
+.stars label{
+
+font-size:42px;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.stars label:hover{
+
+transform:scale(1.15);
+
+}
+
+.stars input{
+
+display:none;
+
+}
+
+.stars input:checked + span{
+
+filter:
+drop-shadow(0 0 6px rgba(255,200,0,.8));
+
+transform:scale(1.15);
+
+display:inline-block;
+
 }
 
 .bottom{
+
 text-align:center;
+
 margin-top:40px;
+
 }
 
 button{
+
 background:#143A84;
+
 color:white;
+
 border:none;
-padding:18px 42px;
-font-size:24px;
+
+padding:20px 52px;
+
+font-size:26px;
+
 font-weight:bold;
-border-radius:20px;
+
+border-radius:22px;
+
 cursor:pointer;
+
 transition:.2s;
+
 }
 
 button:hover{
+
 transform:scale(1.05);
+
 }
 
 .notice{
+
 margin-top:16px;
+
 font-size:16px;
+
 color:#777;
+
 }
 
 @media(max-width:900px){
@@ -169,14 +324,17 @@ font-size:46px;
 font-size:38px;
 }
 
-textarea,
-input{
+textarea{
 font-size:24px;
 height:150px;
 }
 
-input{
-height:70px;
+.stars label{
+font-size:34px;
+}
+
+button{
+width:100%;
 }
 
 }
@@ -201,7 +359,9 @@ height:70px;
 
 </div>
 
+
 <div class="grid">
+
 
 <div class="card">
 
@@ -226,6 +386,7 @@ class="cat"
 src="./images/cat-sleep.png">
 
 </div>
+
 
 
 <div class="card">
@@ -253,6 +414,7 @@ src="./images/cat-search.png">
 </div>
 
 
+
 <div class="card">
 
 <div class="label orange">
@@ -276,6 +438,7 @@ class="cat"
 src="./images/cat-coffee.png">
 
 </div>
+
 
 
 <div class="card">
@@ -305,6 +468,70 @@ src="./images/cat-happy.png">
 </div>
 
 
+
+<div class="rating-card">
+
+<div class="label purple">
+
+⭐ 滿意度調查
+
+</div>
+
+<div class="desc">
+
+請為今天的活動整體滿意度打分數
+
+</div>
+
+<div class="stars">
+
+<label>
+<input
+type="radio"
+name="rating"
+value="1">
+<span>⭐</span>
+</label>
+
+<label>
+<input
+type="radio"
+name="rating"
+value="2">
+<span>⭐⭐</span>
+</label>
+
+<label>
+<input
+type="radio"
+name="rating"
+value="3">
+<span>⭐⭐⭐</span>
+</label>
+
+<label>
+<input
+type="radio"
+name="rating"
+value="4">
+<span>⭐⭐⭐⭐</span>
+</label>
+
+<label>
+<input
+type="radio"
+name="rating"
+value="5"
+checked>
+<span>⭐⭐⭐⭐⭐</span>
+</label>
+
+</div>
+
+</div>
+
+
+
 <div class="bottom">
 
 <button onclick="submitForm()">
@@ -322,6 +549,7 @@ src="./images/cat-happy.png">
 </div>
 
 </div>
+
 
 
 <script>
@@ -364,6 +592,13 @@ document
 .value
 .trim()
 
+const rating =
+document
+.querySelector(
+'input[name="rating"]:checked'
+)
+.value
+
 if(
 !feeling ||
 !discovery ||
@@ -387,7 +622,8 @@ await client
 feeling,
 discovery,
 surprise,
-people
+people,
+rating
 }
 ])
 
@@ -421,6 +657,11 @@ document
 document
 .getElementById('people')
 .value=''
+
+document
+.querySelector(
+'input[name="rating"][value="5"]'
+).checked = true
 
 }
 
