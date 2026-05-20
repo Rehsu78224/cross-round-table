@@ -75,7 +75,7 @@ max-width:760px;
 
 margin:auto;
 
-margin-bottom:38px;
+margin-bottom:40px;
 
 }
 
@@ -206,61 +206,63 @@ background:white;
 
 border-radius:34px;
 
-padding:26px;
+padding:28px;
 
 box-shadow:
 0 8px 26px rgba(0,0,0,.08);
 
-margin-top:26px;
+margin-top:30px;
 
 text-align:center;
 
 }
 
-.stars{
+.star-rating{
 
 display:flex;
 
+flex-direction:row-reverse;
+
 justify-content:center;
 
-gap:18px;
+gap:12px;
 
 margin-top:24px;
 
-flex-wrap:wrap;
-
 }
 
-.stars label{
-
-font-size:42px;
-
-cursor:pointer;
-
-transition:.2s;
-
-}
-
-.stars label:hover{
-
-transform:scale(1.15);
-
-}
-
-.stars input{
+.star-rating input{
 
 display:none;
 
 }
 
-.stars input:checked + span{
+.star-rating label{
 
-filter:
-drop-shadow(0 0 6px rgba(255,200,0,.8));
+font-size:72px;
 
-transform:scale(1.15);
+color:#E0E0E0;
 
-display:inline-block;
+cursor:pointer;
+
+transition:.2s;
+
+line-height:1;
+
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+
+color:#FFD84D;
+
+transform:scale(1.08);
+
+}
+
+.star-rating input:checked ~ label{
+
+color:#FFD84D;
 
 }
 
@@ -329,8 +331,8 @@ font-size:24px;
 height:150px;
 }
 
-.stars label{
-font-size:34px;
+.star-rating label{
+font-size:56px;
 }
 
 button{
@@ -483,48 +485,22 @@ src="./images/cat-happy.png">
 
 </div>
 
-<div class="stars">
+<div class="star-rating">
 
-<label>
-<input
-type="radio"
-name="rating"
-value="1">
-<span>⭐</span>
-</label>
+<input type="radio" id="star5" name="rating" value="5">
+<label for="star5">★</label>
 
-<label>
-<input
-type="radio"
-name="rating"
-value="2">
-<span>⭐⭐</span>
-</label>
+<input type="radio" id="star4" name="rating" value="4">
+<label for="star4">★</label>
 
-<label>
-<input
-type="radio"
-name="rating"
-value="3">
-<span>⭐⭐⭐</span>
-</label>
+<input type="radio" id="star3" name="rating" value="3">
+<label for="star3">★</label>
 
-<label>
-<input
-type="radio"
-name="rating"
-value="4">
-<span>⭐⭐⭐⭐</span>
-</label>
+<input type="radio" id="star2" name="rating" value="2">
+<label for="star2">★</label>
 
-<label>
-<input
-type="radio"
-name="rating"
-value="5"
-checked>
-<span>⭐⭐⭐⭐⭐</span>
-</label>
+<input type="radio" id="star1" name="rating" value="1">
+<label for="star1">★</label>
 
 </div>
 
@@ -558,7 +534,7 @@ const supabaseUrl =
 'https://cvnhchajerbqaalxjtjo.supabase.co'
 
 const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
 
 const client =
 window.supabase.createClient(
@@ -592,12 +568,10 @@ document
 .value
 .trim()
 
-const rating =
-document
-.querySelector(
+const ratingElement =
+document.querySelector(
 'input[name="rating"]:checked'
 )
-.value
 
 if(
 !feeling ||
@@ -611,6 +585,17 @@ alert('請完整填寫所有欄位')
 return
 
 }
+
+if(!ratingElement){
+
+alert('請選擇滿意度')
+
+return
+
+}
+
+const rating =
+ratingElement.value
 
 const {
 error
@@ -659,9 +644,12 @@ document
 .value=''
 
 document
-.querySelector(
-'input[name="rating"][value="5"]'
-).checked = true
+.querySelectorAll(
+'input[name="rating"]'
+)
+.forEach(
+item => item.checked = false
+)
 
 }
 
