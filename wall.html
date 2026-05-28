@@ -1,496 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-Cross Round Table Wall
-</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-
-@page{
-size:A4 portrait;
-margin:0;
-}
-
-*{
-box-sizing:border-box;
-}
-
-body{
-
-margin:0;
-
-background:#FFF8F1;
-
-font-family:
-"Microsoft JhengHei",
-sans-serif;
-
-display:flex;
-
-justify-content:center;
-
-align-items:flex-start;
-
-min-height:100vh;
-
-overflow:auto;
-
-}
-
-.container{
-
-width:100%;
-
-max-width:210mm;
-
-min-height:297mm;
-
-background:#FFF8F1;
-
-padding:14mm;
-
-display:flex;
-
-flex-direction:column;
-
-}
-
-.title{
-
-text-align:center;
-
-font-size:44px;
-
-font-weight:900;
-
-color:#143A84;
-
-line-height:1.2;
-
-margin-bottom:14px;
-
-}
-
-.banner{
-
-background:#FFF2D8;
-
-padding:12px 24px;
-
-border-radius:999px;
-
-text-align:center;
-
-font-size:16px;
-
-font-weight:bold;
-
-width:fit-content;
-
-margin:0 auto 26px auto;
-
-}
-
-.grid{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-flex:1;
-
-}
-
-.card{
-
-background:white;
-
-border-radius:26px;
-
-padding:20px;
-
-position:relative;
-
-overflow:hidden;
-
-box-shadow:
-0 4px 14px rgba(0,0,0,.08);
-
-flex:1;
-
-min-height:210px;
-
-display:flex;
-
-flex-direction:column;
-
-}
-
-.label{
-
-font-size:34px;
-
-font-weight:900;
-
-margin-bottom:8px;
-
-line-height:1;
-
-}
-
-.red{
-color:#FF5F6D;
-}
-
-.green{
-color:#70B84D;
-}
-
-.orange{
-color:#FFA52B;
-}
-
-.blue{
-color:#5A8DEE;
-}
-
-.desc{
-
-font-size:14px;
-
-line-height:1.5;
-
-margin-bottom:12px;
-
-color:#444;
-
-}
-
-.text{
-
-flex:1;
-
-border:3px dashed #E2E2E2;
-
-border-radius:22px;
-
-padding:18px;
-
-background:white;
-
-font-size:22px;
-
-line-height:1.7;
-
-white-space:pre-wrap;
-
-overflow:hidden;
-
-}
-
-.cat{
-
-position:absolute;
-
-right:14px;
-
-bottom:14px;
-
-width:58px;
-
-}
-
-.bottom{
-
-text-align:center;
-
-margin-top:24px;
-
-}
-
-button{
-
-background:#143A84;
-
-color:white;
-
-border:none;
-
-padding:12px 22px;
-
-font-size:15px;
-
-font-weight:bold;
-
-border-radius:14px;
-
-cursor:pointer;
-
-margin:0 6px;
-
-}
-
-.page{
-
-margin-top:12px;
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#143A84;
-
-}
-
-@media print{
-
-html,
-body{
-
-width:210mm;
-height:297mm;
-
-overflow:hidden;
-
-background:white;
-
-}
-
-.container{
-
-max-width:none;
-
-width:210mm;
-
-height:297mm;
-
-padding:10mm;
-
-}
-
-button,
-.page{
-
-display:none;
-
-}
-
-.card{
-
-box-shadow:none;
-
-border:1px solid #DDD;
-
-min-height:auto;
-
-height:220px;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="title">
-
-🐱 CROSS ROUND TABLE ☕
-
-</div>
-
-<div class="banner">
-
-每一次交流，都可能成為未來合作的起點！
-
-</div>
-
-
-<div class="grid">
-
-<div class="card">
-
-<div class="label red">
-
-❤️ 感想
-
-</div>
-
-<div class="desc">
-
-今天參加活動的感受
-
-</div>
-
-<div
-class="text"
-id="feeling">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-sleep.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label green">
-
-🔍 發現
-
-</div>
-
-<div class="desc">
-
-今天的新發現
-
-</div>
-
-<div
-class="text"
-id="discovery">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-search.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label orange">
-
-🎁 意外收穫
-
-</div>
-
-<div class="desc">
-
-今天最大的收穫
-
-</div>
-
-<div
-class="text"
-id="surprise">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-coffee.png">
-
-</div>
-
-
-
-<div class="card">
-
-<div class="label blue">
-
-👥 認識到的人
-
-</div>
-
-<div class="desc">
-
-這次交流認識的新朋友
-
-</div>
-
-<div
-class="text"
-id="people">
-
-載入中...
-
-</div>
-
-<img
-class="cat"
-src="./images/cat-happy.png">
-
-</div>
-
-</div>
-
-
-<div class="bottom">
-
-<button onclick="prevPage()">
-
-⬅ 上一頁
-
-</button>
-
-<button onclick="nextPage()">
-
-下一頁 ➡
-
-</button>
-
-<button onclick="window.print()">
-
-🖨 列印
-
-</button>
-
-<div
-class="page"
-id="page">
-
-1 / 1
-
-</div>
-
-</div>
-
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <script>
-
-const supabaseUrl =
-'https://cvnhchajerbqaalxjtjo.supabase.co'
-
-const supabaseKey =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2bmhjaGFqZXJicWFhbHhqdGpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MDg4OTksImV4cCI6MjA5NDM4NDg5OX0.7XCE9ZpG5FCkCQMV5uLPq2fJ9CgMUl-7fIrWuuq4XxU'
-
-const client =
-window.supabase.createClient(
-supabaseUrl,
-supabaseKey
-)
 
 let allData = []
 
@@ -498,31 +8,27 @@ let current = 0
 
 async function loadData(){
 
-const {
-data,
-error
-} =
-await client
-.from('responses')
-.select('*')
-.order(
-'id',
+Papa.parse(
+'responses.csv',
 {
-ascending:true
-}
+download:true,
+header:true,
+
+complete:function(results){
+
+allData =
+results.data.filter(
+item =>
+item.感想 ||
+item.發現
 )
 
-if(error){
-
-alert(error.message)
-
-return
+showPage()
 
 }
 
-allData = data || []
-
-showPage()
+}
+)
 
 }
 
@@ -539,19 +45,19 @@ allData[current]
 
 document.getElementById('feeling')
 .innerText =
-item.feeling || ''
+item['感想'] || ''
 
 document.getElementById('discovery')
 .innerText =
-item.discovery || ''
+item['發現'] || ''
 
 document.getElementById('surprise')
 .innerText =
-item.surprise || ''
+item['意外收穫'] || ''
 
 document.getElementById('people')
 .innerText =
-item.people || ''
+item['認識到的人'] || ''
 
 document.getElementById('page')
 .innerText =
@@ -586,7 +92,3 @@ showPage()
 loadData()
 
 </script>
-
-</body>
-
-</html>
