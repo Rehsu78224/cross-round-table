@@ -1,77 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cross Round Table Wall</title>
+
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<style>
+
+body{
+margin:0;
+background:#F5F5F5;
+font-family:"Microsoft JhengHei",sans-serif;
+}
+
+.page{
+width:1120px;
+min-height:794px;
+margin:30px auto;
+background:#FFF8F1;
+padding:40px;
+box-sizing:border-box;
+}
+
+.title{
+text-align:center;
+font-size:64px;
+font-weight:900;
+color:#143A84;
+margin-bottom:20px;
+}
+
+.banner{
+max-width:700px;
+margin:0 auto 40px;
+background:#FFF2D8;
+padding:16px;
+border-radius:40px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+}
+
+.card{
+background:white;
+border-radius:30px;
+padding:24px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+min-height:250px;
+position:relative;
+}
+
+.label{
+font-size:42px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.red{color:#FF5F6D;}
+.green{color:#70B84D;}
+.orange{color:#FFA52B;}
+.blue{color:#5A8DEE;}
+
+.desc{
+font-size:18px;
+margin-bottom:14px;
+}
+
+.textbox{
+border:3px dashed #E5E5E5;
+border-radius:24px;
+padding:22px;
+min-height:120px;
+font-size:34px;
+line-height:1.6;
+white-space:pre-wrap;
+word-break:break-word;
+}
+
+.cat{
+position:absolute;
+right:16px;
+bottom:16px;
+width:70px;
+}
+
+.bottom{
+margin-top:30px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+button{
+background:#143A84;
+color:white;
+border:none;
+padding:16px 32px;
+border-radius:18px;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.pageNumber{
+font-size:28px;
+font-weight:bold;
+color:#143A84;
+}
+
+@media print{
+
+body{
+background:white;
+}
+
+.page{
+margin:0;
+box-shadow:none;
+page-break-after:always;
+}
+
+.bottom{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="title">
+🐱 CROSS ROUND TABLE ☕
+</div>
+
+<div class="banner">
+每一次交流，都可能成為未來合作的起點！
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="label red">❤️ 感想</div>
+<div class="desc">今天參加活動的感受</div>
+<div class="textbox" id="feeling"></div>
+<img class="cat" src="./images/cat-sleep.png">
+</div>
+
+<div class="card">
+<div class="label green">🔍 發現</div>
+<div class="desc">今天的新發現</div>
+<div class="textbox" id="discovery"></div>
+<img class="cat" src="./images/cat-search.png">
+</div>
+
+<div class="card">
+<div class="label orange">🎁 意外收穫</div>
+<div class="desc">今天最大的收穫</div>
+<div class="textbox" id="surprise"></div>
+<img class="cat" src="./images/cat-coffee.png">
+</div>
+
+<div class="card">
+<div class="label blue">👥 認識到的人</div>
+<div class="desc">這次交流認識的新朋友</div>
+<div class="textbox" id="people"></div>
+<img class="cat" src="./images/cat-happy.png">
+</div>
+
+</div>
+
+<div class="bottom">
+
+<button onclick="prevPage()">⬅ 上一頁</button>
+
+<div class="pageNumber">
+<span id="page"></span>
+</div>
+
+<button onclick="nextPage()">下一頁 ➡</button>
+
+</div>
+
+</div>
 
 <script>
 
-let allData = []
+let responses = []
+let currentPage = 0
 
-let current = 0
+function renderPage(){
 
-async function loadData(){
+if(responses.length===0){
 
-Papa.parse(
-'responses.csv',
-{
-download:true,
-header:true,
-
-complete:function(results){
-
-allData =
-results.data.filter(
-item =>
-item.感想 ||
-item.發現
-)
-
-showPage()
-
-}
-
-}
-)
-
-}
-
-function showPage(){
-
-if(allData.length===0){
-
+document.body.innerHTML="<h1 style='text-align:center;margin-top:100px'>目前沒有資料</h1>"
 return
 
 }
 
-const item =
-allData[current]
+const item = responses[currentPage]
 
-document.getElementById('feeling')
-.innerText =
-item['感想'] || ''
+document.getElementById("feeling").innerText =
+item.feeling || ""
 
-document.getElementById('discovery')
-.innerText =
-item['發現'] || ''
+document.getElementById("discovery").innerText =
+item.discovery || ""
 
-document.getElementById('surprise')
-.innerText =
-item['意外收穫'] || ''
+document.getElementById("surprise").innerText =
+item.surprise || ""
 
-document.getElementById('people')
-.innerText =
-item['認識到的人'] || ''
+document.getElementById("people").innerText =
+item.people || ""
 
-document.getElementById('page')
-.innerText =
-`${current+1} / ${allData.length}`
+document.getElementById("page").innerText =
+`${currentPage+1} / ${responses.length}`
 
 }
 
 function nextPage(){
 
-if(current < allData.length-1){
+if(currentPage < responses.length-1){
 
-current++
-
-showPage()
+currentPage++
+renderPage()
 
 }
 
@@ -79,16 +244,42 @@ showPage()
 
 function prevPage(){
 
-if(current > 0){
+if(currentPage > 0){
 
-current--
-
-showPage()
-
-}
+currentPage--
+renderPage()
 
 }
 
-loadData()
+}
+
+Papa.parse("responses.csv",{
+
+download:true,
+header:true,
+
+complete:function(results){
+
+responses = results.data.filter(
+r => r.feeling
+)
+
+renderPage()
+
+},
+
+error:function(err){
+
+console.log(err)
+
+document.body.innerHTML =
+"<h1 style='text-align:center;margin-top:100px'>CSV讀取失敗</h1>"
+
+}
+
+})
 
 </script>
+
+</body>
+</html>
